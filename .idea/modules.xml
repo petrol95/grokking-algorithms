@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/binary_search/binary_search.iml" filepath="$PROJECT_DIR$/binary_search/binary_search.iml" />
-      <module fileurl="file://$PROJECT_DIR$/palindrome/palindrome.iml" filepath="$PROJECT_DIR$/palindrome/palindrome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fibonacci/fibonacci.iml" filepath="$PROJECT_DIR$/fibonacci/fibonacci.iml" />
       <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/texts/texts.iml" filepath="$PROJECT_DIR$/texts/texts.iml" />
     </modules>
   </component>
 </project>
