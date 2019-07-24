@@ -1,34 +1,37 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class SelectionSort {
     
-    private static int findSmallest(List<Integer> list) {
-        int smallest = list.get(0);
-        int smallest_index = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) < smallest) {
-                smallest = list.get(i);
-                smallest_index = i;
+    private static int findSmallest(int[] arr) {
+        int smallest = arr[0];
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < smallest) {
+                smallest = arr[i];
+                index = i;
             }
         }
-        return smallest_index;
+        return index;
     }
     
-    private static List<Integer> selectSort(List<Integer> list) {
-        List<Integer> newList = new ArrayList<>();
-        int smallest;
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            smallest = findSmallest(list);
-            newList.add(list.remove(smallest));
+    private static void selectSort(int[] arr) {
+        int index;
+        int size = arr.length;
+        int[] newArr = new int[arr.length];
+        for (int i = 0; i < newArr.length; i++) {
+            index = findSmallest(arr);
+            newArr[i] = arr[index];
+            for (int j = index; j < size - 1; j++)
+                arr[j] = arr[j + 1];
+            size--;
         }
-        return newList;
+        System.out.println(Arrays.toString(newArr));
     }
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(Arrays.asList(5, 3, 6, 2, 10));
-        System.out.println(selectSort(list).toString());
+        int[] arr = {5, 3, 6, 2, 10};
+        selectSort(arr);
+        int[] arr1 = {-5, 7, 0, -6, 4, 0, 2, 5, 8, -3, 8};
+        selectSort(arr1);
     }
 }
