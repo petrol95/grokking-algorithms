@@ -1,4 +1,4 @@
-public class Search {
+public class BinarySearch {
 
     private static void binarySearch(int[] arr, int item) {
         int low = 0;
