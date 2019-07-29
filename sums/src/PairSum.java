@@ -1,5 +1,9 @@
 import java.util.Arrays;
 
+/**
+ * Функция, проверяющая, что в отсортированном массиве встречается такая пара чисел, которая дает нужную сумму
+ */
+
 public class PairSum {
 
     public static void main(String[] args) {

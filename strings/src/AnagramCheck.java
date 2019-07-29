@@ -1,3 +1,7 @@
+/**
+ * Функция, проверяющая, что строки являются анаграммами
+ */
+
 public class AnagramCheck {
 
     public static void main(String[] args) {

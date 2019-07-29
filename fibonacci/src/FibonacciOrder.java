@@ -1,3 +1,7 @@
+/**
+ * Функция, возвращающая порядковое число в последовательности Фибоначчи
+ */
+
 public class FibonacciOrder {
 
     public static void main(String[] args) {

@@ -1,3 +1,7 @@
+/**
+ * Функция, проверяющая переданную строку на палиндром
+ */
+
 public class PalindromeCheck {
 
     public static void main(String[] args) {
@@ -19,7 +23,7 @@ public class PalindromeCheck {
     private static boolean isPalindrome(String s) {
         s = s.replaceAll("-|,|\\.|\\?|!|\\(|\\)|\\s", ""); // убираем знаки препинания, скобки и пробелы
         char[] arr = s.toCharArray();
-        for (int i = 0; i <= arr.length/2; i++) {
+        for (int i = 0; i <= arr.length / 2; i++) {
             if (Character.toLowerCase(arr[i]) != Character.toLowerCase(arr[arr.length - 1 - i]))
                 return false;
         }
