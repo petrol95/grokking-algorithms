@@ -6,8 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/comparing/comparing.iml" filepath="$PROJECT_DIR$/comparing/comparing.iml" />
       <module fileurl="file://$PROJECT_DIR$/fibonacci/fibonacci.iml" filepath="$PROJECT_DIR$/fibonacci/fibonacci.iml" />
       <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strings/strings.iml" filepath="$PROJECT_DIR$/strings/strings.iml" />
       <module fileurl="file://$PROJECT_DIR$/sums/sums.iml" filepath="$PROJECT_DIR$/sums/sums.iml" />
-      <module fileurl="file://$PROJECT_DIR$/texts/texts.iml" filepath="$PROJECT_DIR$/texts/texts.iml" />
     </modules>
   </component>
 </project>
