@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class QueueImpl implements Queue {
     protected int[] data;
     protected int size;
@@ -21,12 +19,14 @@ public class QueueImpl implements Queue {
             rear = DEFAULT_REAR;
         data[++rear] = value;
         size++;
-        System.out.println("front = " + front);
-        System.out.println("rear = " + rear);
     }
 
     @Override
     public int removeLeft() {
+//        if (front == data.length - 1)
+//            front = DEFAULT_FRONT;
+//        size--;
+//        return data[front++];
         int value = data[front++];
         if (front == data.length)
             front = DEFAULT_FRONT;
