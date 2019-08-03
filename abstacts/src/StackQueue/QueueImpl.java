@@ -1,3 +1,5 @@
+package StackQueue;
+
 public class QueueImpl implements Queue {
     protected int[] data;
     protected int size;

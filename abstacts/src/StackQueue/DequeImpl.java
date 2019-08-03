@@ -1,3 +1,5 @@
+package StackQueue;
+
 public class DequeImpl extends QueueImpl implements Deque {
 
     public DequeImpl(int maxSize) {

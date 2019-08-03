@@ -1,3 +1,5 @@
+package StackQueue;
+
 public class PriorityQueue {
     int[] data;
     int size;

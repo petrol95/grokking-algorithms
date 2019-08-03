@@ -1,3 +1,5 @@
+package StackQueue;
+
 public class StackImpl implements Stack {
     private int[] data;
     private int size;

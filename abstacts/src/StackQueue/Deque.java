@@ -1,3 +1,5 @@
+package StackQueue;
+
 public interface Deque {
 
     void addRight(int value);

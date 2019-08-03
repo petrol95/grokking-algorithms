@@ -1,3 +1,5 @@
+package StackQueue;
+
 public interface Stack {
 
     void push(int value);

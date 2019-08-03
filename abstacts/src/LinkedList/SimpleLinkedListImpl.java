@@ -75,4 +75,9 @@ public class SimpleLinkedListImpl implements LinkedList{
         }
         System.out.println();
     }
+
+    @Override
+    public Link getFirstElement() {
+        return firstElement;
+    }
 }

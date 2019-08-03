@@ -1,7 +1,9 @@
+package StackQueue;
+
 public class TestClass {
 
     public static void main(String[] args) {
-        System.out.println("---Stack---");
+        System.out.println("---StackQueue.Stack---");
         Stack stack = new StackImpl(5);
         addToStack(stack,1);
         addToStack(stack,2);
@@ -17,9 +19,9 @@ public class TestClass {
         while(!stack.isEmpty()) {
             System.out.print(stack.pop() + " ");
         }
-        System.out.println("\nStack is empty: " + stack.isEmpty());
+        System.out.println("\nStackQueue.Stack is empty: " + stack.isEmpty());
 
-        System.out.println("---Queue---");
+        System.out.println("---StackQueue.Queue---");
         Queue queue = new QueueImpl(5);
         addToQueue(queue, 1);
         addToQueue(queue, 2);
@@ -36,7 +38,7 @@ public class TestClass {
         }
         System.out.println("\nqueue is empty: " + queue.isEmpty());
 
-        System.out.println("---Priority Queue---");
+        System.out.println("---Priority StackQueue.Queue---");
         PriorityQueue prQueue = new PriorityQueue(5);
         prQueue.insert(10);
         prQueue.insert(40);
@@ -49,7 +51,7 @@ public class TestClass {
         }
         System.out.println("\nprQueue is empty: " + prQueue.isEmpty());
 
-        System.out.println("---Deque---");
+        System.out.println("---StackQueue.Deque---");
         DequeImpl deque = new DequeImpl(5);
         addRightToDeque(deque, 1);
         addRightToDeque(deque, 2);

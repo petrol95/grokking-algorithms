@@ -15,4 +15,6 @@ public interface LinkedList {
     Link search(int value);
 
     void display();
+
+    Link getFirstElement();
 }
