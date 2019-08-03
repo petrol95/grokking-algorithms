@@ -1,5 +1,6 @@
 package LinkedList;
 
+import StackQueue.Queue;
 import StackQueue.Stack;
 
 public class TestClass {
@@ -29,24 +30,25 @@ public class TestClass {
 //            System.out.println(linkedList.remove());
 //        }
 
-        System.out.println("---Test Stack---");
-        Stack stack = new LinkedStackImpl();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
-        stack.push(6);
+//
 
-        stack.display();
-        stack.pop();
-        stack.pop();
-        System.out.println("peek: " + stack.peek());
-        stack.display();
-        while(!stack.isEmpty()) {
-            System.out.print(stack.pop() + " ");
+        System.out.println("---Test Queue---");
+        Queue queue = new LinkedQueueImpl();
+        queue.addRight(1);
+        queue.addRight(2);
+        queue.addRight(3);
+        queue.addRight(4);
+        queue.addRight(5);
+        queue.addRight(6);
+
+        queue.display();
+        queue.removeLeft();
+        queue.removeLeft();
+        queue.display();
+        while(!queue.isEmpty()) {
+            System.out.print(queue.removeLeft() + " ");
         }
-        System.out.println("\nStack is empty: " + stack.isEmpty());
+        System.out.println("\nqueue is empty: " + queue.isEmpty());
 
     }
 }
