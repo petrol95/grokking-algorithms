@@ -1,6 +1,6 @@
 package LinkedList;
 
-public interface LinkedList {
+public interface LinkedList extends Iterable<Link> {
 
     void add(int value);
 
@@ -17,4 +17,6 @@ public interface LinkedList {
     void display();
 
     Link getFirstElement();
+
+    void setFirstElement(Link firstElement);
 }
