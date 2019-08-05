@@ -3,11 +3,11 @@ package LinkedList;
 import StackQueue.Queue;
 import StackQueue.Stack;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 //import java.util.LinkedList;
 //import java.util.List;
 //import java.util.ListIterator;
-import java.util.function.Predicate;
+//import java.util.function.Predicate;
 
 public class Test4Class {
     public static void main(String[] args) {
@@ -79,10 +79,35 @@ public class Test4Class {
         linkedList.add(1);
         linkedList.add(2);
         linkedList.add(3);
+
+        ListIterator iterator = (ListIterator) linkedList.iterator();
+        while(iterator.hasNext()) {
+            Link next = iterator.next();
+            System.out.println("next = " + next);
+            iterator.remove();
+//            iterator.insertBefore(22);
+//            iterator.insertAfter(22);
+        }
+
         for (Link value : linkedList) {
             System.out.println(value);
         }
 
+        linkedList.add(4);
+        linkedList.add(3);
+        linkedList.add(2);
+        linkedList.add(1);
+
+        System.out.println("--");
+        iterator.reset(); //1! 2 3 4
+        iterator.insertAfter(11); //1 11! 2 3 4
+        iterator.next(); //1 11 2! 3 4
+        iterator.remove(); //1 11 3! 4
+        iterator.insertBefore(0); // 1 11 0! 3 4
+
+        for (Link value : linkedList) {
+            System.out.println(value);
+        }
     }
 
 //    private static void testIterator() {
@@ -112,7 +137,7 @@ public class Test4Class {
 ////            iterator.set(22);
 //        }
 
-//        linkedList.removeIf(value -> value % 2 != 0);
+//       linkedList.removeIf(value -> value % 2 != 0);
 
 //        System.out.println("after iterator");
 //        for (Integer value : linkedList) {
