@@ -1,6 +1,6 @@
 package LinkedList;
 
-import StackQueue.Queue;
+import StackAndQueue.Queue;
 
 public class LinkedQueueImpl implements Queue {
     private TwoSideLinkedList linkedList;

@@ -1,4 +1,4 @@
-package StackQueue;
+package StackAndQueue;
 
 public interface Deque {
 

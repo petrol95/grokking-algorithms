@@ -1,6 +1,6 @@
 package LinkedList;
 
-import StackQueue.Stack;
+import StackAndQueue.Stack;
 
 public class LinkedStackImpl implements Stack {
     private LinkedList linkedList;
