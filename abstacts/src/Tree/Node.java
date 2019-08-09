@@ -12,6 +12,7 @@ public interface Node {
 
     void setRightChild(Node node);
 
-    boolean isLeftChild(Node node);
+    boolean isLeftChild(int key);
 
+    Node getNodeByKey(int key);
 }

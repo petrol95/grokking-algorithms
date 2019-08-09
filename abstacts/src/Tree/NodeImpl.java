@@ -1,7 +1,5 @@
 package Tree;
 
-import java.util.Objects;
-
 public class NodeImpl implements Node {
     private Person data;
     private Node leftChild;
@@ -41,11 +39,13 @@ public class NodeImpl implements Node {
         return data.toString();
     }
 
-    public boolean isLeftChild(Node parent) {
-        if (this.getKey() < parent.getKey())
-            return true;
-        else
-            return false;
+    @Override
+    public boolean isLeftChild(int key) {
+        return key < this.getKey();
     }
 
+    @Override
+    public Node getNodeByKey(int key) {
+        return (isLeftChild(key)) ? getLeftChild() : getRightChild();
+    }
 }

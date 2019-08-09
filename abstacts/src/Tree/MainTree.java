@@ -7,19 +7,17 @@ public class MainTree {
         Tree tree = new TreeImpl();
         tree.insert(new NodeImpl(60, "Petr", 100));
         tree.insert(new NodeImpl(66, "Petr", 100));
-        tree.insert(new NodeImpl(50, "Petr", 100));
-        tree.insert(new NodeImpl(40, "Petr", 100));
-        tree.insert(new NodeImpl(31, "Petr", 100));
+        tree.insert(new NodeImpl(25, "Petr", 100));
+        tree.insert(new NodeImpl(15, "Petr", 100));
         tree.insert(new NodeImpl(45, "Petr", 100));
+        tree.insert(new NodeImpl(5, "Petr", 100));
+        tree.insert(new NodeImpl(30, "Petr", 100));
+        tree.insert(new NodeImpl(20, "Petr", 100));
         tree.insert(new NodeImpl(55, "Petr", 100));
-        tree.insert(new NodeImpl(57, "Petr", 100));
-        tree.insert(new NodeImpl(70, "Petr", 100));
-        tree.insert(new NodeImpl(67, "Petr", 100));
-        tree.insert(new NodeImpl(81, "Petr", 100));
         tree.display();
 
-        System.out.println(tree.find(55));
-
+//        System.out.println(tree.find(55));
+//
         System.out.print("\ninOrder: ");
         tree.traverse(IN_ORDER);
         System.out.print("\npreOrder: ");
@@ -27,5 +25,13 @@ public class MainTree {
         System.out.print("\npostOrder: ");
         tree.traverse(POST_ORDER);
 
+//        tree.remove(57);
+//        tree.remove(55);
+//        tree.remove(65);
+//        tree.remove(50);
+//        tree.remove(60);
+//        tree.display();
+
+//        System.out.println("Balanced: " + tree.isBalanced());
     }
 }
