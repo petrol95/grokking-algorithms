@@ -1,5 +1,7 @@
 package Tree;
 
+import static Tree.TraverseMode.*;
+
 public class MainTree {
     public static void main(String[] args) {
         Tree tree = new TreeImpl();
@@ -17,5 +19,13 @@ public class MainTree {
         tree.display();
 
         System.out.println(tree.find(55));
+
+        System.out.print("\ninOrder: ");
+        tree.traverse(IN_ORDER);
+        System.out.print("\npreOrder: ");
+        tree.traverse(PRE_ORDER);
+        System.out.print("\npostOrder: ");
+        tree.traverse(POST_ORDER);
+
     }
 }

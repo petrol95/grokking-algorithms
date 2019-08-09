@@ -41,14 +41,6 @@ public class NodeImpl implements Node {
         return data.toString();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NodeImpl node = (NodeImpl) o;
-        return this.getKey() == node.getKey();
-    }
-
     public boolean isLeftChild(Node parent) {
         if (this.getKey() < parent.getKey())
             return true;

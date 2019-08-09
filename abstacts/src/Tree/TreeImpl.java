@@ -19,7 +19,7 @@ public class TreeImpl implements Tree {
                 current = getNodeByKey(current, value);
             }
         }
-    return null;
+        return null;
     }
 
     @Override
@@ -57,8 +57,47 @@ public class TreeImpl implements Tree {
     }
 
     @Override
-    public void traverse(int mode) {
+    public void traverse(TraverseMode mode) {
+        switch (mode) {
+            case IN_ORDER:
+                this.inOrder(root);
+                break;
+            case PRE_ORDER:
+                this.preOrder(root);
+                break;
+            case POST_ORDER:
+                this.postOrder(root);
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
 
+    private void postOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        postOrder(node.getLeftChild());
+        postOrder(node.getRightChild());
+        System.out.print(node.getKey() + " ");
+    }
+
+    private void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.getKey() + " ");
+        preOrder(node.getLeftChild());
+        preOrder(node.getRightChild());
+    }
+
+    private void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.getLeftChild());
+        System.out.print(node.getKey() + " ");
+        inOrder(node.getRightChild());
     }
 
     @Override

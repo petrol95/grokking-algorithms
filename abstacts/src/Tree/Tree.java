@@ -8,7 +8,7 @@ public interface Tree {
 
     Node remove(int id);
 
-    void traverse(int mode);
+    void traverse(TraverseMode mode);
 
     void display();
 }
