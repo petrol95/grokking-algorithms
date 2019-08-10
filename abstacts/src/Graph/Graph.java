@@ -4,18 +4,13 @@ import java.util.*;
 
 public class Graph {
     private List<Vertex> vertexes;
-    private boolean [][] adjMatrix;
+    private boolean[][] adjMatrix;
     private int size;
 
     public Graph(int maxSize) {
         vertexes = new ArrayList<>(maxSize);
         adjMatrix = new boolean[maxSize][maxSize];
-        this.size = maxSize;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                adjMatrix[i][j] = false;
-            }
-        }
+        this.size = 0;
     }
 
     public boolean addEdge(String labelFrom, String labelTo) {
@@ -36,15 +31,16 @@ public class Graph {
     }
 
     private Vertex findVertex(String label) {
-        for (int i = 0; i < size; i++) {
-            if (vertexes.get(i).getLabel().equals(label))
-                return vertexes.get(i);
+        for (Vertex vertex : vertexes) {
+            if (vertex.getLabel().equals(label))
+                return vertex;
         }
         return null;
     }
 
     public void addVertex(String label) {
         vertexes.add(new Vertex(label));
+        size++;
     }
 
     public void display() {
@@ -57,22 +53,21 @@ public class Graph {
         Vertex vertex = findVertex(startLabel);
         if (vertex == null)
             throw new IllegalArgumentException("Invalid label " + startLabel);
-        else {
-            Stack<Vertex> stack = new Stack();
-            visitVertex(vertex, stack);
 
-            while(!stack.empty()) {
-                vertex = getAdjUnvisitedVertex(stack.peek());
-                if (vertex == null) {
-                    stack.pop();
-                } else {
-                    visitVertex(vertex, stack);
-                }
-            }
+        Stack<Vertex> stack = new Stack();
+        visitVertex(vertex, stack);
 
-            for (int i = 0; i < size; i++) {
-                vertexes.get(i).setWasVisited(false);
+        while (!stack.empty()) {
+            vertex = getAdjUnvisitedVertex(stack.peek());
+            if (vertex == null) {
+                stack.pop();
+            } else {
+                visitVertex(vertex, stack);
             }
+        }
+
+        for (int i = 0; i < size; i++) {
+            vertexes.get(i).setWasVisited(false);
         }
     }
 
@@ -80,23 +75,23 @@ public class Graph {
         Vertex vertex = findVertex(startLabel);
         if (vertex == null)
             throw new IllegalArgumentException("Invalid label " + startLabel);
-        else {
-            Queue<Vertex> queue = new ArrayDeque();
-            visitVertex(vertex, queue);
 
-            while(!queue.isEmpty()) {
-                vertex = getAdjUnvisitedVertex(queue.peek());
-                if (vertex == null) {
-                    queue.remove();
-                } else {
-                    visitVertex(vertex, queue);
-                }
-            }
+        Queue<Vertex> queue = new ArrayDeque();
+        visitVertex(vertex, queue);
 
-            for (int i = 0; i < size; i++) {
-                vertexes.get(i).setWasVisited(false);
+        while (!queue.isEmpty()) {
+            vertex = getAdjUnvisitedVertex(queue.peek());
+            if (vertex == null) {
+                queue.remove();
+            } else {
+                visitVertex(vertex, queue);
             }
         }
+
+        for (int i = 0; i < size; i++) {
+            vertexes.get(i).setWasVisited(false);
+        }
+
     }
 
     private void visitVertex(Vertex vertex, Stack<Vertex> stack) {

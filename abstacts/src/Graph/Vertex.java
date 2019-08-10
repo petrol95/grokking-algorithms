@@ -2,27 +2,23 @@ package Graph;
 
 public class Vertex {
     private String label;
-    private boolean isWasVisited;
+    private boolean wasVisited;
 
     public Vertex(String label) {
         this.label = label;
-        isWasVisited = false;
+        wasVisited = false;
     }
 
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
     public boolean isWasVisited() {
-        return isWasVisited;
+        return wasVisited;
     }
 
     public void setWasVisited(boolean wasVisited) {
-        isWasVisited = wasVisited;
+        this.wasVisited = wasVisited;
     }
 
     @Override
