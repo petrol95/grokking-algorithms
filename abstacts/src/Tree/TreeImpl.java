@@ -3,10 +3,16 @@ package Tree;
 import java.util.Stack;
 
 public class TreeImpl implements Tree {
-    Node root;
+    private Node root;
+    private int maxLevel;
 
     public TreeImpl() {
         root = null;
+    }
+
+    public TreeImpl(int maxLevel) {
+        root = null;
+        this.maxLevel = maxLevel;
     }
 
     @Override
@@ -34,10 +40,17 @@ public class TreeImpl implements Tree {
                 parent = current;
                 current = current.getNodeByKey(node.getKey());
             }
-            if (parent.isLeftChild(node.getKey()))
+
+            if (parent.isLeftChild(node.getKey())) {
                 parent.setLeftChild(node);
-            else
+            } else {
                 parent.setRightChild(node);
+            }
+
+            // remove node if too many levels in the tree
+            if (height(root) > maxLevel) {
+                removeLeafNode(node.getKey(), parent);
+            }
         }
     }
 
@@ -58,10 +71,7 @@ public class TreeImpl implements Tree {
 
         // no children
         if (current.getLeftChild() == null && current.getRightChild() == null) {
-            if (parent.isLeftChild(key))
-                parent.setLeftChild(null);
-            else
-                parent.setRightChild(null);
+            removeLeafNode(key, parent);
 
             // one child
         } else if (current.getLeftChild() == null || current.getRightChild() == null) {
@@ -86,6 +96,13 @@ public class TreeImpl implements Tree {
             successor.setLeftChild(current.getLeftChild());
         }
         return current;
+    }
+
+    private void removeLeafNode(int key, Node parent) {
+        if (parent.isLeftChild(key))
+            parent.setLeftChild(null);
+        else
+            parent.setRightChild(null);
     }
 
     private Node getSuccessor(Node node) {
