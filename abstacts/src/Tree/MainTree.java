@@ -1,9 +1,40 @@
 package Tree;
 
+import java.util.Random;
+
 import static Tree.TraverseMode.*;
 
 public class MainTree {
+
     public static void main(String[] args) {
+//        testTree();
+        testDZ();
+    }
+
+    private static void testDZ() {
+        int treeNum = 20;
+        int levelNum = 4;
+        int nodeNum = (int)(Math.pow(2, levelNum) - 1)/2;
+        int maxValue = 20;
+
+        Random rand = new Random();
+        int sumBalanced = 0;
+
+        for (int i = 0; i < treeNum; i++) {
+            Tree tree = new TreeImpl(levelNum);
+            for (int j = 0; j < nodeNum; j++) {
+                int id = rand.nextInt(maxValue * 2 + 1) - maxValue;
+                tree.insert(new NodeImpl(id, "Petr", 100));
+            }
+            tree.display();
+            if (tree.isBalanced()) {
+                sumBalanced++;
+            }
+        }
+        System.out.println("Trees: " + treeNum + "; balanced, : " + (sumBalanced * 100.0 / treeNum) + " %");
+    }
+
+    private static void testTree() {
         Tree tree = new TreeImpl();
         tree.insert(new NodeImpl(60, "Petr", 100));
         tree.insert(new NodeImpl(66, "Petr", 100));
