@@ -65,10 +65,7 @@ public class Graph {
                 visitVertex(vertex, stack);
             }
         }
-
-        for (int i = 0; i < size; i++) {
-            vertexes.get(i).setWasVisited(false);
-        }
+        clearVisits();
     }
 
     public void bfs(String startLabel) {
@@ -87,11 +84,50 @@ public class Graph {
                 visitVertex(vertex, queue);
             }
         }
+        clearVisits();
+    }
 
+    private Stack<String> getRoot(Vertex vertex) {
+        Stack<String> stack = new Stack<>();
+
+        while (vertex != null) {
+            stack.push(vertex.getLabel());
+            vertex = vertex.getPreviousVertex();
+        }
+        clearVisits();
+        return stack;
+    }
+
+    private void clearVisits() {
         for (int i = 0; i < size; i++) {
             vertexes.get(i).setWasVisited(false);
         }
+    }
 
+    public Stack<String> findBestRoot(String startLabel, String endLabel) {
+        Vertex startVertex = findVertex(startLabel);
+        Vertex endVertex = findVertex(endLabel);
+        if (startVertex == null || endVertex == null)
+            throw new IllegalArgumentException("Invalid label");
+
+        Queue<Vertex> queue = new ArrayDeque();
+        visitVertex(startVertex, queue);
+
+        while (!queue.isEmpty()) {
+            Vertex vertex = getAdjUnvisitedVertex(queue.peek());
+
+            if (vertex == null) {
+                queue.remove();
+            } else {
+                vertex.setPreviousVertex(queue.peek());
+                if (vertex.getLabel().equals(endVertex.getLabel())) {
+                    return getRoot(vertex);
+                }
+                visitVertex(vertex, queue);
+            }
+        }
+        clearVisits();
+        return null;
     }
 
     private void visitVertex(Vertex vertex, Stack<Vertex> stack) {
