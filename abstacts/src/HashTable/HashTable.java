@@ -1,35 +1,47 @@
 package HashTable;
 
 public class HashTable {
-    private Item[] hashArray;
-    private int maxSize;
+    private static final int DOUBLE_HASH_CONST = 5;
 
-    public HashTable(int maxSize) {
-        this.maxSize = maxSize;
-        hashArray = new Item[maxSize];
+    private Item[] hashArray;
+    private int size;
+
+    public HashTable(int size) {
+        this.size = size;
+        hashArray = new Item[size];
     }
 
-    private int HashFunc(int key) {
+    private int hashFunc(int key) {
         return key % hashArray.length;
     }
 
+    private int doubleHashFunc(int key) {
+        return DOUBLE_HASH_CONST - key % DOUBLE_HASH_CONST;
+    }
+
     public Item find(int key) {
-        int index = HashFunc(key);
-        while (hashArray[index] != null) {
+        int index = hashFunc(key);
+        int stepSize = doubleHashFunc(key);
+        int count = 0;
+        while (hashArray[index] != null && count < hashArray.length) {
             if (key == hashArray[index].hashCode()) {
                 return hashArray[index];
             }
-            index++;
+            index += stepSize;
             index %= hashArray.length;
+            count++;
         }
         return null;
     }
 
     public void add(Item item) {
-        int index = HashFunc(item.hashCode());
-        while (hashArray[index] != null) {
-            index++;
+        int index = hashFunc(item.hashCode());
+        int stepSize = doubleHashFunc(item.hashCode());
+        int count = 0;
+        while (hashArray[index] != null && count < hashArray.length) {
+            index += stepSize;
             index %= hashArray.length;
+            count++;
         }
         hashArray[index] = item;
     }
@@ -39,15 +51,18 @@ public class HashTable {
     }
 
     public Item remove(int key) {
-        int index = HashFunc(key);
-        while (hashArray[index] != null) {
+        int index = hashFunc(key);
+        int stepSize = doubleHashFunc(key);
+        int count = 0;
+        while (hashArray[index] != null && count < hashArray.length) {
             if (key == hashArray[index].hashCode()) {
                 Item removed = hashArray[index];
                 hashArray[index] = null;
                 return removed;
             }
-            index++;
+            index += stepSize;
             index %= hashArray.length;
+            count++;
         }
         return null;
     }
