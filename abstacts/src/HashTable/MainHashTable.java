@@ -7,8 +7,32 @@ public class MainHashTable {
     private static Item item1;
 
     public static void main(String[] args) {
-        testHashTable();
+//        testHashTable();
 //        testHashMap();
+        ChainHashTable chainHashTable = new ChainHashTable(10);
+        Item item1 = new Item(2, "2");
+        Item item2 = new Item(15, "15");
+        Item item3 = new Item(32, "32");
+        Item item4 = new Item(7, "7");
+        Item item5 = new Item(17, "17");
+
+        chainHashTable.add(item1);
+        chainHashTable.add(item2);
+        chainHashTable.add(item3);
+        chainHashTable.add(item4);
+        chainHashTable.add(item5);
+
+        chainHashTable.display();
+        System.out.println("size is: " + chainHashTable.getSize());
+        System.out.println("---");
+
+        System.out.println(chainHashTable.find(32));
+        System.out.println(chainHashTable.find(81));
+        System.out.println("---");
+
+        chainHashTable.remove(item4);
+        chainHashTable.display();
+        System.out.println("size is: " + chainHashTable.getSize());
 
     }
 
