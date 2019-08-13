@@ -15,6 +15,10 @@ public class HashTable {
         return key % hashArray.length;
     }
 
+    private int hashFunc(Item item) {
+        return hashFunc(item.hashCode());
+    }
+
     private int doubleHashFunc(int key) {
         return DOUBLE_HASH_CONST - key % DOUBLE_HASH_CONST;
     }
@@ -35,7 +39,7 @@ public class HashTable {
     }
 
     public void add(Item item) {
-        int index = hashFunc(item.hashCode());
+        int index = hashFunc(item);
         int stepSize = doubleHashFunc(item.hashCode());
         int count = 0;
         while (hashArray[index] != null && count < hashArray.length) {

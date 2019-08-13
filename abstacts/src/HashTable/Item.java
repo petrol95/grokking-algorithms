@@ -1,14 +1,23 @@
 package HashTable;
 
-public class Item {
-    private final int data;
+import java.util.Objects;
 
-    public Item(int data) {
+public class Item {
+    private int id;
+    private final String data;
+
+    public Item(int id, String data) {
+        this.id = id;
         this.data = data;
     }
 
-    public int getData() {
+    public String getData() {
         return data;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 
     @Override
@@ -16,18 +25,15 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return data == item.data;
-    }
-
-    @Override
-    public int hashCode() {
-        return data;
+        return id == item.id &&
+                Objects.equals(data, item.data);
     }
 
     @Override
     public String toString() {
         return "Item{" +
-                "data=" + data +
+                "id=" + id +
+                ", data='" + data + '\'' +
                 '}';
     }
 }

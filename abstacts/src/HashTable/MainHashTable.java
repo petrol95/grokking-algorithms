@@ -7,8 +7,9 @@ public class MainHashTable {
     private static Item item1;
 
     public static void main(String[] args) {
-//        testHashTable();
-        testHashMap();
+        testHashTable();
+//        testHashMap();
+
     }
 
     private static void testHashMap() {
@@ -29,11 +30,11 @@ public class MainHashTable {
 
     private static void testHashTable() {
         HashTable hashTable = new HashTable(10);
-        Item item1 = new Item(2);
-        Item item2 = new Item(15);
-        Item item3 = new Item(32);
-        Item item4 = new Item(7);
-        Item item5 = new Item(17);
+        Item item1 = new Item(2, "2");
+        Item item2 = new Item(15, "15");
+        Item item3 = new Item(32, "32");
+        Item item4 = new Item(7, "7");
+        Item item5 = new Item(17, "17");
 
         hashTable.add(item1);
         hashTable.add(item2);
