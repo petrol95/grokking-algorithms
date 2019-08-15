@@ -1,9 +1,14 @@
 package Inner;
 
+/**
+ * Outer and Inner classes
+ */
+
+
 public class Outer {
 
     public class Inner {
-        int innerVar;
+        private int innerVar;
         public Inner(int innerVar) {
             this.innerVar = innerVar;
         }
@@ -14,7 +19,7 @@ public class Outer {
         }
     }
 
-    int outerVar;
+    private int outerVar;
     public Outer(int outerVar) {
         this.outerVar = outerVar;
     }
