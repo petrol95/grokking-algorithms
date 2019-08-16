@@ -1,6 +1,6 @@
 package Competitors;
 
-public class Animal {
+public abstract class Animal {
     String type;
     String name;
     int maxRunDistance;
