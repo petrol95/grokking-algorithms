@@ -8,7 +8,7 @@ public class Cross extends Obstacle {
     }
 
     @Override
-    public void doIt(Animal animal) {
-        animal.run(distance);
+    public void doIt(Competitor competitor) {
+        competitor.run(distance);
     }
 }

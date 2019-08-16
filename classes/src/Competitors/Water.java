@@ -8,7 +8,7 @@ public class Water extends Obstacle {
     }
 
     @Override
-    public void doIt(Animal animal) {
-        animal.swim(distance);
+    public void doIt(Competitor competitor) {
+        competitor.swim(distance);
     }
 }

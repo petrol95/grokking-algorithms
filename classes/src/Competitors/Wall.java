@@ -8,7 +8,7 @@ public class Wall extends Obstacle {
     }
 
     @Override
-    public void doIt(Animal animal) {
-        animal.jump(height);
+    public void doIt(Competitor competitor) {
+        competitor.jump(height);
     }
 }

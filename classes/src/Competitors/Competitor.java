@@ -1,6 +1,6 @@
 package Competitors;
 
-public interface Competitors {
+public interface Competitor {
     boolean isOnDistance();
 
     void run(int distance);
