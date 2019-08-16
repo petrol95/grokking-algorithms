@@ -22,7 +22,7 @@ public class Animal {
     }
 
     public void run(int distance) {
-        if (distance < maxRunDistance) {
+        if (distance <= maxRunDistance) {
             System.out.println(type + " " + name + " успешно справился с кроссом");
         } else {
             System.out.println(type + " " + name + " не смог преодолеть кросс");
@@ -31,7 +31,7 @@ public class Animal {
     }
 
     public void jump(int height) {
-        if (height < maxJumpHeight) {
+        if (height <= maxJumpHeight) {
             System.out.println(type + " " + name + " успешно справился с препятствием");
         } else {
             System.out.println(type + " " + name + " не смог преодолеть препятствие");
@@ -46,12 +46,13 @@ public class Animal {
             return;
         }
         if (distance < maxSwimDistance) {
-            System.out.println(type + " " + name + " успешно справился с дистанцией");
+            System.out.println(type + " " + name + " успешно проплыл дистанцию");
         } else {
-            System.out.println(type + " " + name + " не смог преодолеть дистанцию");
+            System.out.println(type + " " + name + " не смог проплыть дистанцию");
             onDistance = false;
         }
     }
+
     public void showResult() {
         System.out.println(type + " " + name + ": " + onDistance);
     }
