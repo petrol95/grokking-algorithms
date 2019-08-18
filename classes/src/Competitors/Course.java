@@ -3,8 +3,8 @@ package Competitors;
 public class Course {
     Obstacle[] obstacles;
 
-    public Course(int runDistance, int jumpHeight, int swimDistance) {
-        obstacles = new Obstacle[]{ new Cross(runDistance), new Wall(jumpHeight), new Water(swimDistance)};
+    public Course(Obstacle... obstacles) {
+        this.obstacles = obstacles;
     }
 
     public void doIt(Team team) {
@@ -16,6 +16,4 @@ public class Course {
             }
         }
     }
-
-
 }

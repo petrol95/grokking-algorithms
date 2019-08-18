@@ -4,9 +4,9 @@ public class Team {
     String name;
     Competitor[] competitors;
 
-    public Team(String name) {
+    public Team(String name, Competitor... competitors) {
         this.name = name;
-        competitors = new Competitor[]{new Cat("Барсик"), new Dog("Бобик"), new Human("Боб")};
+        this.competitors = competitors;
     }
 
     public Competitor[] getCompetitors() {
@@ -14,14 +14,16 @@ public class Team {
     }
 
     public void showResult() {
-        System.out.println("===========");
+        System.out.println("=== Team: " + name + "===");
+        System.out.println("competitors:");
         for (Competitor competitor : competitors) {
             competitor.showResult();
         }
     }
 
     public void showWinResult() {
-        System.out.println("===========");
+        System.out.println("=== Team: " + name + "===");
+        System.out.println("winners:");
         for (Competitor competitor : competitors) {
             if (competitor.isOnDistance())
                 competitor.showResult();
