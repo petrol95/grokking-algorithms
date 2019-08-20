@@ -2,7 +2,7 @@ package MyException;
 
 public class MyArraySizeException extends MyException {
 
-    public MyArraySizeException(int x, int y) {
-        super(String.format("Неверный размер массива %d х %d", x, y));
+    public MyArraySizeException() {
+        super("Неверный размер! Массив должен иметь размер 4 х 4!");
     }
 }
