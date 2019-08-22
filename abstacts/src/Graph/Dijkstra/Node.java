@@ -25,4 +25,24 @@ public class Node {
     public void addDestination(Node destination, int distance) {
         adjNodes.put(destination, distance);
     }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
+    }
+
+    public List<Node> getShortestPath() {
+        return shortestPath;
+    }
+
+    public void setShortestPath(List<Node> shortestPath) {
+        this.shortestPath = shortestPath;
+    }
+
+    public Map<Node, Integer> getAdjNodes() {
+        return adjNodes;
+    }
 }
