@@ -17,6 +17,13 @@ public class Graph {
         nodes.add(node);
     }
 
+    @Override
+    public String toString() {
+        return "Graph{" +
+                "nodes=" + nodes +
+                '}';
+    }
+
     // returns the node with the lowest distance from the unsettled nodes set
     private static Node getLowestDistanceNode(Set<Node> unsettledNodes) {
         Node lowestDistanceNode = null;

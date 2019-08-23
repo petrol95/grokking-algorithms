@@ -22,6 +22,11 @@ public class Node {
         adjNodes = new HashMap<>();
     }
 
+    @Override
+    public String toString() {
+        return name + "-" + distance;
+    }
+
     public void addDestination(Node destination, int distance) {
         adjNodes.put(destination, distance);
     }
