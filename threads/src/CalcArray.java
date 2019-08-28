@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CalcArray {
 
     static final int size = 10_000_000;
@@ -10,44 +12,51 @@ public class CalcArray {
 
     public static void oneThreadMethod() {
         float[] arr = new float[size];
-        for (int i = 0; i < size; i++) {
-            arr[i] = 1;
-        }
+        Arrays.fill(arr, 1f);
 
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < size; i++) {
-            arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-        }
+        calcFormula(arr, 0);
         System.out.println("One thread: " + (System.currentTimeMillis() - startTime));
     }
 
     public static void twoThreadsMethod() {
         float[] arr = new float[size];
-        for (int i = 0; i < size; i++) {
-            arr[i] = 1;
-        }
+        Arrays.fill(arr, 1f);
+
         float[] arr1 = new float[h];
-        float[] arr2 = new float[size];
+        float[] arr2 = new float[h];
 
         long startTime = System.currentTimeMillis();
         System.arraycopy(arr, 0, arr1, 0, h);
         System.arraycopy(arr, h, arr2, 0, h);
 
-        new Thread(() -> {
-            for (int i = 0; i < h; i++) {
-                arr1[i] = (float) (arr1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-            }
-        }).start();
+        Thread t1 = new Thread(() -> {
+            calcFormula(arr1, 0);
+        });
 
-        new Thread(() -> {
-            for (int i = h; i < size; i++) {
-                arr2[i - h] = (float) (arr2[i - h] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-            }
-        }).start();
+        Thread t2 = new Thread(() -> {
+            calcFormula(arr2, h);
+        });
 
-        System.arraycopy(arr1, 0, arr, 0, h);
-        System.arraycopy(arr2, 0, arr, h, h);
+        try {
+            t1.start();
+            t2.start();
+            System.arraycopy(arr1, 0, arr, 0, h);
+            System.arraycopy(arr2, 0, arr, h, h);
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Two threads: " + (System.currentTimeMillis() - startTime));
+    }
+
+    private static void calcFormula(float[] arr, int shift) {
+        for (int i = shift; i < (arr.length + shift); i++) {
+            arr[i - shift] = (float) (arr[i - shift] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) *
+                    Math.cos(0.4f + i / 2));
+        }
     }
 
 }
