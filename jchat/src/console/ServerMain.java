@@ -1,7 +1,8 @@
-package client;
+package console;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -10,16 +11,12 @@ import java.util.Scanner;
  * как на клиентской стороне, так и на серверной. Сервер общается только с одним клиентом.
  */
 
-public class ClientMain {
-
+public class ServerMain {
     public static void main(String[] args) {
-
-        final String SERVER_IP = "localhost";
-        final int SERVER_PORT = 8189;
-
-        try {
-            Socket socket = new Socket(SERVER_IP, SERVER_PORT);
-            System.out.println("Connected to chat...");
+        try (ServerSocket serverSocket = new ServerSocket(8189)) {
+            System.out.println("Server started. Waiting for clients...");
+            Socket socket = serverSocket.accept();
+            System.out.println("Client connected...");
 
             Scanner inKey = new Scanner(System.in);
             Scanner in = new Scanner(socket.getInputStream());
@@ -30,10 +27,11 @@ public class ClientMain {
                 try {
                     while (true) {
                         String msg = inKey.nextLine();
-                        System.out.println(msg);
-                        out.println(msg);
+                        System.out.println("from server: " + msg);
                         if (msg.equals("/end"))
                             break;
+                        out.println(msg);
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -46,14 +44,15 @@ public class ClientMain {
                 }
             }).start();
 
-            // обработка сообщения с сервера
+            // обработка сообщения от клиента
             new Thread(() -> {
                 try {
                     while (true) {
                         String msg = in.nextLine();
-                        System.out.println("from server: " + msg);
+                        System.out.println("from client: " + msg);
                         if (msg.equals("/end"))
                             break;
+                        out.println("echo: " + msg);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
