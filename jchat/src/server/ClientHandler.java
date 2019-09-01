@@ -9,9 +9,11 @@ public class ClientHandler {
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
+    private Server server;
 
-    public ClientHandler(Socket socket) {
+    public ClientHandler(Server server, Socket socket) {
         try {
+            this.server = server;
             this.socket = socket;
             this.in = new DataInputStream(socket.getInputStream());
             this.out = new DataOutputStream(socket.getOutputStream());
@@ -20,8 +22,8 @@ public class ClientHandler {
                     while (true) {
                         String msg = in.readUTF();
                         System.out.println("client: " + msg);
-                        sendMsg("echo: " + msg);
                         if (msg.equals("/end")) break;
+                        server.broadcastMsg("client: " + msg);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -38,11 +40,12 @@ public class ClientHandler {
         }
     }
 
-    private void sendMsg(String msg) {
+    public void sendMsg(String msg) {
         try {
             out.writeUTF((msg));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

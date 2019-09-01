@@ -3,11 +3,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.PasswordField?>
 <VBox fx:controller="client.Controller"
       xmlns:fx="http://javafx.com/fxml" alignment="center">
+    <HBox fx:id="authPanel">
+        <TextField fx:id="loginField" HBox.hgrow="ALWAYS" promptText="Логин"/>
+        <PasswordField fx:id="passField" promptText="Пароль" onAction="#sendAuthMsg"/>
+        <Button text="Авторизоваться" onAction="#sendAuthMsg"/>
+    </HBox>
     <TextArea fx:id="textArea" VBox.vgrow="ALWAYS" editable="false"/>
-    <HBox>
+    <HBox fx:id="msgPanel">
         <TextField fx:id="msgField" HBox.hgrow="ALWAYS" onAction="#sendMsg" promptText="Введите сообщение"/>
-        <Button text="Send Message" onAction="#sendMsg"/>
+        <Button text="Отправить" onAction="#sendMsg"/>
     </HBox>
 </VBox>
