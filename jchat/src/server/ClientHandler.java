@@ -48,6 +48,10 @@ public class ClientHandler {
                         System.out.println(nick + ": " + msg);
                         if (msg.startsWith("/")) {
                             if (msg.equals("/end")) break;
+                            if (msg.startsWith("/w")) {
+                                String[] data = msg.split("\\s", 3);
+                                server.sendPrivateMsg(data[1], nick + ": " + data[2]);
+                            }
                         } else {
                             server.broadcastMsg(nick + ": " + msg);
                         }
