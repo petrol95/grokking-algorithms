@@ -10,6 +10,11 @@ public class ClientHandler {
     private DataInputStream in;
     private DataOutputStream out;
     private Server server;
+    private String nick;
+
+    public String getNick() {
+        return nick;
+    }
 
     public ClientHandler(Server server, Socket socket) {
         try {
@@ -21,13 +26,37 @@ public class ClientHandler {
                 try {
                     while (true) {
                         String msg = in.readUTF();
-                        System.out.println("client: " + msg);
-                        if (msg.equals("/end")) break;
-                        server.broadcastMsg("client: " + msg);
+                        if (msg.startsWith("/auth")) {
+                            String[] data = msg.split("\\s");
+                            String newNick = server.getAuthService().getNickByLoginAndPass(data[1], data[2]);
+                            if (newNick != null) {
+                                if (!server.isNickBusy(newNick)) {
+                                    nick = newNick;
+                                    sendMsg("/authok");
+                                    server.subscribe(this);
+                                    break;
+                                } else {
+                                    sendMsg("Учетная запись уже занята");
+                                }
+                            } else {
+                                sendMsg("Неверный логин/пароль");
+                            }
+                        }
+                    }
+                    while (true) {
+                        String msg = in.readUTF();
+                        System.out.println(nick + ": " + msg);
+                        if (msg.startsWith("/")) {
+                            if (msg.equals("/end")) break;
+                        } else {
+                            server.broadcastMsg(nick + ": " + msg);
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
+                    nick = null;
+                    server.unsubscribe(this);
                     try {
                         socket.close();
                     } catch (IOException e) {

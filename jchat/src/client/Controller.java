@@ -55,11 +55,14 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setAuthorized(false);
+    }
+
+    public void connect() {
         try {
             socket = new Socket(SERVER_IP, SERVER_PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            authorized = false;
 
             Thread t = new Thread(() -> {
                 try {
@@ -77,8 +80,9 @@ public class Controller implements Initializable {
                         textArea.appendText(msg + "\n");
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    showAlert("Сервер перестал отвечать");
                 } finally {
+                    setAuthorized(false);
                     try {
                         socket.close();
                     } catch (IOException e) {
@@ -89,11 +93,22 @@ public class Controller implements Initializable {
             t.setDaemon(true);
             t.start();
 
-        } catch (
-                IOException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            showAlert("Не удалось подключиться к серверу. Проверьте сетевое соединение");
         }
+    }
 
+    public void sendAuthMsg() {
+        if (socket == null || socket.isClosed()) {
+            connect();
+        }
+        try { // /auth login pass
+            out.writeUTF("/auth " + loginField.getText() + " " + passField.getText());
+            loginField.clear();
+            passField.clear();
+        } catch (IOException e) {
+            showAlert("Не удалось подключиться к серверу. Проверьте сетевое соединение");
+        }
     }
 
     public void sendMsg() {
@@ -102,17 +117,7 @@ public class Controller implements Initializable {
             msgField.clear();
             msgField.requestFocus();
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void sendAuthMsg() {
-        try { // /auth login pass
-            out.writeUTF("/auth " + loginField.getText() + " " + passField.getText());
-            loginField.clear();
-            passField.clear();
-        } catch (IOException e) {
-            e.printStackTrace();
+            showAlert("Не удалось подключиться к серверу. Проверьте сетевое соединение");
         }
     }
 
