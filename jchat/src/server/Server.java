@@ -41,21 +41,33 @@ public class Server {
         }
     }
 
-    public void sendPrivateMsg(String nick, String msg) {
+    public void sendPrivateMsg(ClientHandler from, String nickTo, String msg) {
         for(ClientHandler o: clients) {
-            if (o.getNick().equals(nick)) {
-                o.sendMsg(msg);
+            if (o.getNick().equals(nickTo)) {
+                o.sendMsg(from.getNick() + ": " + msg);
+                from.sendMsg("клиенту" + nickTo + ": " + msg);
                 return;
             }
         }
+        from.sendMsg("Клиент " + nickTo + " не найден!");
+    }
+
+    public void broadcastClientsList() {
+        StringBuilder sb = new StringBuilder("/clientsList");
+        for(ClientHandler o: clients) {
+            sb.append(" " + o.getNick());
+        }
+        broadcastMsg(sb.toString());
     }
 
     public void subscribe(ClientHandler clientHandler) {
         clients.add(clientHandler);
+        broadcastClientsList();
     }
 
     public void unsubscribe(ClientHandler clientHandler) {
         clients.remove(clientHandler);
+        broadcastClientsList();
     }
 
     public boolean isNickBusy(String nick) {

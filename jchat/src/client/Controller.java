@@ -99,6 +99,10 @@ public class Controller implements Initializable {
     }
 
     public void sendAuthMsg() {
+        if (loginField.getText().isEmpty() || passField.getText().isEmpty()) {
+            showAlert("Указаны неполные данные авторизации");
+            return;
+        }
         if (socket == null || socket.isClosed()) {
             connect();
         }
