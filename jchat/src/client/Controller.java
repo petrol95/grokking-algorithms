@@ -1,13 +1,13 @@
 package client;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -24,6 +24,8 @@ public class Controller implements Initializable {
     private DataInputStream in;
     private DataOutputStream out;
     private boolean authorized;
+    private ObservableList<String> clientsList;
+    private String myNick;
 
     @FXML
     TextArea textArea;
@@ -37,6 +39,8 @@ public class Controller implements Initializable {
     TextField loginField;
     @FXML
     PasswordField passField;
+    @FXML
+    ListView clientsListView;
 
     public void setAuthorized(boolean authorized) {
         this.authorized = authorized;
@@ -45,11 +49,16 @@ public class Controller implements Initializable {
             authPanel.setManaged(false);
             msgPanel.setVisible(true);
             msgPanel.setManaged(true);
+            clientsListView.setVisible(true);
+            clientsListView.setManaged(true);
         } else {
             authPanel.setVisible(true);
             authPanel.setManaged(true);
             msgPanel.setVisible(false);
             msgPanel.setManaged(false);
+            clientsListView.setVisible(false);
+            clientsListView.setManaged(false);
+            myNick = "";
         }
     }
 
@@ -63,13 +72,37 @@ public class Controller implements Initializable {
             socket = new Socket(SERVER_IP, SERVER_PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
+            clientsList = FXCollections.observableArrayList();
+            clientsListView.setItems(clientsList);
+
+            clientsListView.setCellFactory(new Callback<ListView, ListCell>() {
+                @Override
+                public ListCell call(ListView param) {
+                    return new ListCell<String>() {
+                        @Override
+                        protected void updateItem(String item, boolean empty) {
+                            super.updateItem(item, empty);
+                            if(!empty) {
+                                setText(item);
+                                if (item.equals(myNick)) {
+                                    setStyle("-fx-font-weight: bold; -fx-background-color: #00ff00;");
+                                }
+                            } else {
+                                setGraphic(null);
+                                setText(null);
+                            }
+                        }
+                    };
+                }
+            });
 
             Thread t = new Thread(() -> {
                 try {
                     while (true) {
                         String msg = in.readUTF();
-                        if (msg.equals("/authok")) {
+                        if (msg.startsWith("/authok ")) {
                             setAuthorized(true);
+                            myNick = msg.split("\\s")[1];
                             break;
                         }
                         textArea.appendText(msg + "\n");
@@ -77,6 +110,15 @@ public class Controller implements Initializable {
 
                     while (true) {
                         String msg = in.readUTF();
+                        if (msg.startsWith("/clientsList")) {
+                            String[] data = msg.split("\\s");
+                            Platform.runLater(() -> {
+                                clientsList.clear();
+                                for (int i = 1; i < data.length; i++) {
+                                    clientsList.addAll(data[i]);
+                                }
+                            });
+                        }
                         textArea.appendText(msg + "\n");
                     }
                 } catch (IOException e) {
