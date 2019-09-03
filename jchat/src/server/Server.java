@@ -30,6 +30,7 @@ public class Server {
             e.printStackTrace();
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Не удалось запустить сервис авторизации");
+            e.printStackTrace();
         } finally {
             authService.disconnect();
         }

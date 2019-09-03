@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
@@ -85,7 +86,7 @@ public class Controller implements Initializable {
                             if(!empty) {
                                 setText(item);
                                 if (item.equals(myNick)) {
-                                    setStyle("-fx-font-weight: bold; -fx-background-color: #00ff00;");
+                                    setStyle("-fx-font-weight: bold; -fx-background-color: #cfff65;");
                                 }
                             } else {
                                 setGraphic(null);
@@ -100,7 +101,7 @@ public class Controller implements Initializable {
                 try {
                     while (true) {
                         String msg = in.readUTF();
-                        if (msg.startsWith("/authok ")) {
+                        if (msg.startsWith("/authok ")) { // /authok nick1
                             setAuthorized(true);
                             myNick = msg.split("\\s")[1];
                             break;
@@ -175,5 +176,13 @@ public class Controller implements Initializable {
             alert.setContentText(msg);
             alert.showAndWait();
         });
+    }
+
+    public void clientsListClicked(MouseEvent mouseEvent) {
+        if (mouseEvent.getClickCount() == 2) {
+            msgField.setText("/w" + clientsListView.getSelectionModel().getSelectedItem());
+            msgField.requestFocus();
+            msgField.selectEnd();
+        }
     }
 }
