@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/graphics/graphics.iml" filepath="$PROJECT_DIR$/graphics/graphics.iml" />
       <module fileurl="file://$PROJECT_DIR$/jchat/jchat.iml" filepath="$PROJECT_DIR$/jchat/jchat.iml" />
       <module fileurl="file://$PROJECT_DIR$/other/other.iml" filepath="$PROJECT_DIR$/other/other.iml" />
+      <module fileurl="file://$PROJECT_DIR$/references/references.iml" filepath="$PROJECT_DIR$/references/references.iml" />
       <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/strings/strings.iml" filepath="$PROJECT_DIR$/strings/strings.iml" />
       <module fileurl="file://$PROJECT_DIR$/sums/sums.iml" filepath="$PROJECT_DIR$/sums/sums.iml" />
