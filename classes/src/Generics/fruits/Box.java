@@ -16,10 +16,11 @@ public class Box<T extends Fruit> {
     }
 
     public float getWeight() {
-        if (fruits.size() == 0)
-            return 0;
-        else
-            return fruits.get(0).getWeight() * fruits.size();
+        float sum = 0;
+        for (T fruit : fruits) {
+            sum += fruit.getWeight();
+        }
+        return sum;
     }
 
     public boolean compare(Box<?> another) {

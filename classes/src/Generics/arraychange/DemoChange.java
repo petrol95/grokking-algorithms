@@ -15,8 +15,8 @@ public class DemoChange {
         System.out.println(strCE);
 
         List<Integer> intList = intCE.transformToArrayList();
-        System.out.println(intCE.transformToArrayList().getClass().getName() + ": " + intList);
+        System.out.println(intCE.transformToArrayList().getClass().getSimpleName() + ": " + intList);
         List<String> strList = strCE.transformToArrayList();
-        System.out.println(strCE.transformToArrayList().getClass().getName() + ": " + strList);
+        System.out.println(strCE.transformToArrayList().getClass().getSimpleName() + ": " + strList);
     }
 }
