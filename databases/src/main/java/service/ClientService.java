@@ -17,15 +17,15 @@ public class ClientService implements AutoCloseable {
 
     public ClientService(String DBName) {
         connectDriver();
-        connect(DBName);
+        this.connection = connect(DBName);
         dao = new SimpleClientDAO(connection);
     }
 
-    private void connect(String dbName) {
+    private Connection connect(String dbName) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+            return DriverManager.getConnection("jdbc:sqlite:" + dbName);
         } catch (SQLException e) {
-            throw new RuntimeException("Connection failed", e);
+            throw new IllegalArgumentException("Invalid DB name " + dbName);
         }
     }
 

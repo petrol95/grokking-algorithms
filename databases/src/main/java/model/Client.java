@@ -9,7 +9,7 @@ public class Client {
     private String firstName;
     private String surname;
     private LocalDate birthDate;
-    private Set<String> phones = new HashSet<>();
+    private final Set<Phone> phones = new HashSet<>();
 
     public int getId() {
         return id;
@@ -43,12 +43,8 @@ public class Client {
         this.birthDate = birthDate;
     }
 
-    public Set<String> getPhones() {
+    public Set<Phone> getPhones() {
         return phones;
-    }
-
-    public void setPhones(Set<String> phones) {
-        this.phones = phones;
     }
 
     @Override
