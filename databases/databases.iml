@@ -4,9 +4,11 @@
     <output url="file://$MODULE_DIR$/../databases/target/classes" />
     <output-test url="file://$MODULE_DIR$/../databases/target/test-classes" />
     <content url="file://$MODULE_DIR$/../databases">
-      <sourceFolder url="file://$MODULE_DIR$/../databases/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../databases/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../databases/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../databases/clients/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../databases/clients/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../databases/clients/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../databases/products/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../databases/clients/target" />
       <excludeFolder url="file://$MODULE_DIR$/../databases/target" />
     </content>
     <orderEntry type="inheritedJdk" />
