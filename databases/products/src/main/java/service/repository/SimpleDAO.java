@@ -44,7 +44,7 @@ public class SimpleDAO implements ProductDAO {
         try {
             ps = connection.prepareStatement("INSERT INTO products (ID, PRODID, TITLE, COST) " +
                     "VALUES (?, ?, ?, ?)");
-            for (int i = 0; i < count; i++) {
+            for (int i = 1; i <= count; i++) {
                 ps.setInt(1, i);
                 ps.setInt(2, 7000 + i);
                 ps.setString(3, "product_" + i);
