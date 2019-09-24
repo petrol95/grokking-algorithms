@@ -37,12 +37,12 @@ public class Person extends Human implements Serializable {
         return Objects.hash(name, friend);
     }
 
-//    private void writeExternal(ObjectOutput out) throws IOException {
+//    private void writeObject(ObjectOutputStream out) throws IOException {
 //        out.writeObject(name);
 //        out.writeObject(friend);
 //    }
 //
-//    private void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+//    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
 //        name = (String) in.readObject();
 //        friend = (serialization.Person) in.readObject();
 //    }

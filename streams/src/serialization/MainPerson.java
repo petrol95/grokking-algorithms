@@ -29,8 +29,8 @@ public class MainPerson {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("streams/objects.txt"));
         Person p4 = (Person) ois.readObject();
         Person p5 = (Person) ois.readObject();
-//        serialization.Person p4 = new serialization.Person();
-//        serialization.Person p5 = new serialization.Person();
+//        Person p4 = new Person();
+//        Person p5 = new Person();
 //        p4.readExternal(ois);
 //        p5.readExternal(ois);
 

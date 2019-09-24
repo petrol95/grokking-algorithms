@@ -1,3 +1,5 @@
+package viewdirs;
+
 import java.io.File;
 
 /** Программа просмотра содержимого папки
