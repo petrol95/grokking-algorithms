@@ -1,9 +1,11 @@
-import java.io.Serializable;
+package serialization;
+
+import java.io.*;
 import java.util.Objects;
 
 public class Person extends Human implements Serializable {
     public String name;
-    public Person friend;
+    public transient  Person friend;
 
     public Person(String name) {
         this.name = name;
@@ -14,7 +16,7 @@ public class Person extends Human implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "serialization.Person{" +
                 "name='" + name + '\'' +
                 ", friend=" + friend +
                 ", age=" + age +
@@ -35,5 +37,13 @@ public class Person extends Human implements Serializable {
         return Objects.hash(name, friend);
     }
 
-
+//    private void writeExternal(ObjectOutput out) throws IOException {
+//        out.writeObject(name);
+//        out.writeObject(friend);
+//    }
+//
+//    private void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+//        name = (String) in.readObject();
+//        friend = (serialization.Person) in.readObject();
+//    }
 }

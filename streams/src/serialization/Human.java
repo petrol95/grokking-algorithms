@@ -1,3 +1,5 @@
+package serialization;
+
 import java.io.Serializable;
 
 public class Human implements Serializable {
@@ -8,7 +10,7 @@ public class Human implements Serializable {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "serialization.Human{" +
                 "age=" + age +
                 '}';
     }
