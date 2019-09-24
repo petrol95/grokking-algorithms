@@ -23,6 +23,7 @@ public class MainPerson {
         oos.writeObject(p2);
 //        p1.writeExternal(oos);
 //        p2.writeExternal(oos);
+        oos.close();
 
 //        ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
 //        ObjectInputStream ois = new ObjectInputStream(is);
@@ -33,6 +34,7 @@ public class MainPerson {
 //        Person p5 = new Person();
 //        p4.readExternal(ois);
 //        p5.readExternal(ois);
+        ois.close();
 
         System.out.println(p4);
         System.out.println(p5);
