@@ -1,26 +1,38 @@
 import java.io.*;
+import java.io.FileInputStream;
+
+/**
+ * Прочитать файл (около 50 байт) в байтовый массив и вывести этот массив в консоль
+ */
 
 public class ByteFile {
 
-    public static final String FILE_NAME = "streams\\byteFile.txt";
+    private static final String FILE_NAME = "streams\\byteFile.txt";
+    private static OutputStream os;
+    private static FileInputStream is;
 
     public static void main(String[] args) throws IOException {
 
-        byte[] bytesIn = new byte[50_000];
-        byte[] bytesOut = new byte[50_000];
+        try {
+            byte[] bytesIn = new byte[50];
+            byte[] bytesOut = new byte[50];
 
-        OutputStream os = new BufferedOutputStream((new FileOutputStream(FILE_NAME)));
-        for (int i = 0; i < bytesIn.length; i++) {
-            bytesIn[i] = 125;
-        }
-        os.write(bytesIn);
-        os.close();
+            os = new FileOutputStream(FILE_NAME);
+            for (int i = 0; i < bytesIn.length; i++) {
+                bytesIn[i] = (byte) i;
+            }
+            os.write(bytesIn);
 
-        InputStream is = new BufferedInputStream(new FileInputStream(FILE_NAME));
-        is.read(bytesOut);
-        is.close();
-        for (int i = 0; i < bytesOut.length; i++) {
-            System.out.println(bytesOut[i]);
+            is = new FileInputStream(FILE_NAME);
+            is.read(bytesOut);
+            System.out.println("Read " + bytesOut.length + " bytes");
+
+            for (byte b : bytesOut) {
+                System.out.print(b + " ");
+            }
+        } finally {
+            os.close();
+            is.close();
         }
     }
 }

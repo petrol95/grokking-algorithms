@@ -1,8 +1,13 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * Последовательно сшить 5 файлов в один (файлы примерно 100 байт)
+ */
+
 public class SequenceStream {
-    public static final String PATH = "streams\\";
+    private static final String PATH = "streams\\";
+    private static final int FILE_SIZE = 100;
 
     public static void main(String[] args) throws IOException {
 
@@ -12,25 +17,20 @@ public class SequenceStream {
             al.add(new FileInputStream(PATH + i + ".txt"));
         }
         Enumeration<InputStream> e = Collections.enumeration(al);
-        OutputStream out = new FileOutputStream(PATH + "output.txt");
-        InputStream seq = new SequenceInputStream(e);
 
         int x;
-        try {
+        try (OutputStream out = new BufferedOutputStream(new FileOutputStream(PATH + "output.txt"));
+             InputStream seq = new SequenceInputStream(e)) {
             while ((x = seq.read()) != -1) {
                 out.write(x);
             }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            seq.close();
         }
     }
 
     private static void prepareFile(int i) throws IOException {
         File file = new File(PATH + i + ".txt");
         OutputStream out = new BufferedOutputStream(new FileOutputStream(file));
-        while(file.length() <= 102_400) {
+        while(file.length() <= FILE_SIZE) {
             out.write(70 + i);
         }
         out.close();
