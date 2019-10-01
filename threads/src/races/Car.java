@@ -8,7 +8,7 @@ public class Car implements Runnable {
         CARS_COUNT = 0;
     }
 
-    private static volatile CyclicBarrier cb;
+    private static CyclicBarrier cb;
     private static volatile boolean isWin = false;
 
     private Race race;
@@ -23,15 +23,12 @@ public class Car implements Runnable {
         return speed;
     }
 
-    public Car(Race race, int speed) {
+    public Car(Race race, int speed, CyclicBarrier cb) {
         this.race = race;
         this.speed = speed;
+        this.cb = cb;
         CARS_COUNT++;
         this.name = "Участник #" + CARS_COUNT;
-    }
-
-    public static void setCb(CyclicBarrier cb) {
-        Car.cb = cb;
     }
 
     @Override
