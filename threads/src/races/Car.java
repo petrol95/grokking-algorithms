@@ -8,7 +8,7 @@ public class Car implements Runnable {
         CARS_COUNT = 0;
     }
 
-    private static CyclicBarrier cb;
+    private CyclicBarrier cb;
     private static volatile boolean isWin = false;
 
     private Race race;
