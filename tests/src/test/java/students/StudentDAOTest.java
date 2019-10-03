@@ -18,6 +18,7 @@ public class StudentDAOTest {
 
     @AfterClass
     public static void tearDown() throws Exception {
+        cancelUpdates();
         ss.close();
     }
 
@@ -28,14 +29,18 @@ public class StudentDAOTest {
 
     @Test
     public void saveStudentTest() {
-        Student newStudent = new Student();
-        newStudent.setName("New");
-        newStudent.setMark(3);
-        Assert.assertEquals(dao.saveStudent(newStudent), 1);
+        Assert.assertEquals(dao.saveStudent(new Student("New", 3)), 1);
     }
 
     @Test
     public void updateStudentTest() {
         Assert.assertEquals(dao.updateStudent("Petrov"), 1);
+    }
+
+    private static void cancelUpdates() {
+        dao.emptyTab();
+        dao.saveStudent(new Student("Ivanov", 5));
+        dao.saveStudent(new Student("Petrov", 4));
+        dao.saveStudent(new Student("Sidorov", 2));
     }
 }

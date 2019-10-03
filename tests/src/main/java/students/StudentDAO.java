@@ -54,4 +54,15 @@ public class StudentDAO {
         student.setMark(rs.getInt(3));
         return student;
     }
+
+    public void emptyTab() {
+        try {
+            ps = connection.prepareStatement("DELETE FROM students");
+            ps.executeUpdate();
+            ps = connection.prepareStatement("DELETE FROM sqlite_sequence WHERE name = 'students'");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to execute query", e);
+        }
+    }
 }
