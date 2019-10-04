@@ -21,21 +21,16 @@ public class ArrayLast4Test {
 
     @Test
     public void testPositive() {
-        Integer[] arg = {1, 2, 4, 4, 2, 3, 4, 1, 7};
-        Integer[] res = {1, 7};
-        Assert.assertArrayEquals(res, array.transformArray(arg));
+        Assert.assertArrayEquals(new Integer[]{1, 7}, array.transformArray(new Integer[]{1, 2, 4, 4, 2, 3, 4, 1, 7}));
     }
 
     @Test
     public void testEmpty() {
-        Integer[] arg = {1, 2, 4, 4, 2, 3, 4, 1, 4};
-        Integer[] res = {};
-        Assert.assertArrayEquals(res, array.transformArray(arg));
+        Assert.assertArrayEquals(new Integer[]{}, array.transformArray(new Integer[]{1, 2, 4, 4, 2, 3, 4, 1, 4}));
     }
 
     @Test(expected = RuntimeException.class)
     public void testException() {
-        Integer[] arg = {1, 2, 1, 7};
-        Assert.assertEquals(array.transformArray(arg), RuntimeException.class);
+        array.transformArray(new Integer[]{1, 2, 1, 7});
     }
 }
