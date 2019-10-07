@@ -41,7 +41,17 @@ public class DBWorkImplTest {
     }
 
     @Test
-    public void c_testDeleteDB() {
+    public void c_update() {
+        int newMark = 2;
+        int rowsUpdated = dbw.update(stdTest.getName(), newMark);
+        Assert.assertThat(rowsUpdated, Is.is(1));
+
+        Student studentFromDb = dbw.readFromDB(stdTest.getName()).get(0);
+        Assert.assertEquals(2, studentFromDb.getMark());
+    }
+
+    @Test
+    public void d_testDeleteDB() {
         Assert.assertThat(dbw.delFromDB(stdTest.getName()), Is.is(1));
         Assert.assertThat(dbw.readFromDB(stdTest.getName()), Is.is(Collections.emptyList()));
     }
