@@ -1,7 +1,9 @@
+package lock;
+
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ReentrantLockEx {
+public class ReentrantLockExample {
 
     private static int count = 0;
 
