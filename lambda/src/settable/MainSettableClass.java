@@ -3,6 +3,7 @@ package settable;
 public class MainSettableClass {
 
     public static void main(String[] args) {
+        // empty Cat
         Cat myCat = new Cat();
         System.out.println(myCat);
 
@@ -11,6 +12,7 @@ public class MainSettableClass {
             obj.setAge(age);
         };
 
+        // changed Cat
         changeEntity(myCat, s);
         System.out.println(myCat);
     }
