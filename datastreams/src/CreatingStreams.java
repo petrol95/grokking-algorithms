@@ -41,7 +41,7 @@ public class CreatingStreams {
         }
     }
 
-    private static <T> void show(String title, Stream<T> stream) {
+    static <T> void show(String title, Stream<T> stream) {
         final int SIZE = 10;
         List<T> firstElements = stream
                 .limit(SIZE + 1)
