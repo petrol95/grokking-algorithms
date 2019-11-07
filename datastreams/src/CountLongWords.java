@@ -18,16 +18,10 @@ public class CountLongWords {
         }
         System.out.println(count);
 
-        count = words
-                .stream()
-                .filter(w -> w.length() > 10)
-                .count();
+        count = words.stream().filter(w -> w.length() > 10).count();
         System.out.println(count);
 
-        count = words
-                .parallelStream()
-                .filter(w -> w.length() > 10)
-                .count();
+        count = words.parallelStream().filter(w -> w.length() > 10).count();
         System.out.println(count);
     }
 }
