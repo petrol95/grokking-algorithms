@@ -27,7 +27,7 @@ public class TransformingStreams {
         Stream<Double> randoms = Stream.generate(Math::random).limit(8);
         CreatingStreams.show("randoms", randoms);
 
-        Path path = Paths.get("datastreams\\alice.txt");
+        Path path = Paths.get("streamapi\\alice.txt");
         String contents = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
         Stream<String> book = Stream.of(contents.split("\\PL+")).skip(1);
         CreatingStreams.show("book", book);

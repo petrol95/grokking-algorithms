@@ -8,7 +8,7 @@ public class OptionalTest {
 
     public static void main(String[] args) throws IOException {
         String contents = new String(Files.readAllBytes(
-                Paths.get("datastreams\\alice.txt")), StandardCharsets.UTF_8);
+                Paths.get("streamapi\\alice.txt")), StandardCharsets.UTF_8);
         List<String> wordList = Arrays.asList(contents.split("\\PL+"));
 
         Optional<String> optionalValue = wordList.stream()
@@ -34,7 +34,7 @@ public class OptionalTest {
         optionalValue.ifPresent(s -> System.out.println(s + " contains red"));
 
         Set<String> results = new HashSet<>();
-        optionalValue.ifPresent(results::add);
+//        optionalValue.ifPresent(results::add);
         Optional<Boolean> added = optionalValue.map(results::add);
         System.out.println(added);
 

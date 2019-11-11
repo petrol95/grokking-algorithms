@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class CreatingStreams {
 
     public static void main(String[] args) throws IOException {
-        Path path = Paths.get("datastreams\\alice.txt");
+        Path path = Paths.get("streamapi\\alice.txt");
         String contents = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
 
         Stream<String> words = Stream.of(contents.split("\\PL+"));
