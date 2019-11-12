@@ -14,7 +14,7 @@ public class CollectingResults {
             System.out.println(iter.next());
 
         Object[] numbers = Stream.iterate(0, n -> n + 1).limit(10).toArray();
-        System.out.println("Object array:" + numbers);
+        System.out.println("Object array: " + Arrays.toString(numbers));
 
         try {
             Integer number = (Integer) numbers[0];
@@ -26,7 +26,7 @@ public class CollectingResults {
         }
 
         Integer[] numbers3 = Stream.iterate(0, n -> n + 1).limit(10).toArray(Integer[]::new);
-        System.out.println("Integer array: " + numbers3);
+        System.out.println("Integer array: " + Arrays.toString(numbers3));
 
         Set<String> noVowelSet = noVowels().collect(Collectors.toSet());
         show("noVowelSet", noVowelSet);
