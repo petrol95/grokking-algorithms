@@ -1,0 +1,314 @@
+New York, New York, 8398748
+Los Angeles, California, 3990456
+Chicago, Illinois, 2705994
+Houston, Texas, 2325502
+Phoenix, Arizona, 1660272
+Philadelphia, Pennsylvania, 1584138
+San Antonio, Texas, 1532233
+San Diego, California, 1425976
+Dallas, Texas, 1345047
+San Jose, California, 1030119
+Austin, Texas, 964254
+Jacksonville, Florida, 903889
+Fort Worth, Texas, 895008
+Columbus, Ohio, 892533
+San Francisco, California, 883305
+Charlotte, North Carolina, 872498
+Indianapolis, Indiana, 867125
+Seattle, Washington, 744955
+Denver, Colorado, 716492
+Washington, District of Columbia, 702455
+Boston, Massachusetts, 694583
+El Paso, Texas, 682669
+Detroit, Michigan, 672662
+Nashville, Tennessee, 669053
+Portland, Oregon, 653115
+Memphis, Tennessee, 650618
+Oklahoma City, Oklahoma, 649021
+Las Vegas, Nevada, 644644
+Louisville, Kentucky, 620118
+Baltimore, Maryland, 602495
+Milwaukee, Wisconsin, 592025
+Albuquerque, New Mexico, 560218
+Tucson, Arizona, 545975
+Fresno, California, 530093
+Mesa, Arizona, 508958
+Sacramento, California, 508529
+Atlanta, Georgia, 498044
+Kansas City, Missouri, 491918
+Colorado Springs, Colorado, 472688
+Miami, Florida, 470914
+Raleigh, North Carolina, 469298
+Omaha, Nebraska, 468262
+Long Beach, California, 467354
+Virginia Beach, Virginia, 450189
+Oakland, California, 429082
+Minneapolis, Minnesota, 425403
+Tulsa, Oklahoma, 400669
+Arlington, Texas, 398112
+Tampa, Florida, 39289
+New Orleans, Louisiana, 391006
+Wichita, Kansas, 389255
+Cleveland, Ohio, 383793
+Bakersfield, California, 383579
+Aurora, Colorado, 374114
+Anaheim, California, 352005
+Honolulu, Hawaii, 347397
+Santa Ana, California, 332725
+Riverside, California, 330063
+Corpus Christi, Texas, 326554
+Lexington, Kentucky, 32378
+Stockton, California, 311178
+Henderson, Nevada, 31039
+Saint Paul, Minnesota, 307695
+St. Louis, Missouri, 302838
+Cincinnati, Ohio, 302605
+Pittsburgh, Pennsylvania, 301048
+Greensboro, North Carolina, 294722
+Anchorage, Alaska, 291538
+Plano, Texas, 288061
+Lincoln, Nebraska, 287401
+Orlando, Florida, 285713
+Irvine, California, 282572
+Newark, New Jersey, 28209
+Toledo, Ohio, 274975
+Durham, North Carolina, 274291
+Chula Vista, California, 271651
+Fort Wayne, Indiana, 267633
+Jersey City, New Jersey, 265549
+St. Petersburg, Florida, 265098
+Laredo, Texas, 261639
+Madison, Wisconsin, 258054
+Chandler, Arizona, 257165
+Buffalo, New York, 256304
+Lubbock, Texas, 255885
+Scottsdale, Arizona, 25531
+Reno, Nevada, 250998
+Glendale, Arizona, 250702
+Gilbert, Arizona, 248279
+Winston–Salem, North Carolina, 246328
+North Las Vegas, Nevada, 245949
+Norfolk, Virginia, 244076
+Chesapeake, Virginia, 242634
+Garland, Texas, 242507
+Irving, Texas, 242242
+Hialeah, Florida, 238942
+Fremont, California, 237807
+Boise, Idaho, 22879
+Richmond, Virginia, 228783
+Baton Rouge, Louisiana, 221599
+Spokane, Washington, 21919
+Des Moines, Iowa, 216853
+Tacoma, Washington, 216279
+San Bernardino, California, 215941
+Modesto, California, 21503
+Fontana, California, 213739
+Santa Clarita, California, 210089
+Birmingham, Alabama, 20988
+Oxnard, California, 209877
+Fayetteville, North Carolina, 209468
+Moreno Valley, California, 20905
+Rochester, New York, 206284
+Glendale, California, 201361
+Huntington Beach, California, 200641
+Salt Lake City, Utah, 200591
+Grand Rapids, Michigan, 200217
+Amarillo, Texas, 199924
+Yonkers, New York, 199663
+Aurora, Illinois, 199602
+Montgomery, Alabama, 198218
+Akron, Ohio, 198006
+Little Rock, Arkansas, 197881
+Huntsville, Alabama, 197318
+Augusta, Georgia, 196939
+Port St. Lucie, Florida, 195248
+Grand Prairie, Texas, 194614
+Columbus, Georgia, 19416
+Tallahassee, Florida, 193551
+Overland Park, Kansas, 192536
+Tempe, Arizona, 192364
+McKinney, Texas, 191645
+Mobile, Alabama, 189572
+Cape Coral, Florida, 189343
+Shreveport, Louisiana, 188987
+Frisco, Texas, 18817
+Knoxville, Tennessee, 1875
+Worcester, Massachusetts, 185877
+Brownsville, Texas, 183392
+Vancouver, Washington, 183012
+Fort Lauderdale, Florida, 182595
+Sioux Falls, South Dakota, 181883
+Ontario, California, 181107
+Chattanooga, Tennessee, 180557
+Providence, Rhode Island, 179335
+Newport News, Virginia, 178626
+Rancho Cucamonga, California, 177751
+Santa Rosa, California, 177586
+Oceanside, California, 17608
+Salem, Oregon, 173442
+Elk Grove, California, 172886
+Garden Grove, California, 172646
+Pembroke Pines, Florida, 172374
+Peoria, Arizona, 172259
+Eugene, Oregon, 171245
+Corona, California, 168819
+Cary, North Carolina, 16816
+Springfield, Missouri, 168122
+Fort Collins, Colorado, 16783
+Jackson, Mississippi, 164422
+Alexandria, Virginia, 16053
+Hayward, California, 15962
+Lancaster, California, 159053
+Lakewood, Colorado, 156798
+Clarksville, Tennessee, 156794
+Palmdale, California, 156667
+Salinas, California, 156259
+Springfield, Massachusetts, 155032
+Hollywood, Florida, 154823
+Pasadena, Texas, 153219
+Sunnyvale, California, 153185
+Macon, Georgia, 153095
+Kansas City, Kansas, 152958
+Pomona, California, 152361
+Escondido, California, 152213
+Killeen, Texas, 149103
+Naperville, Illinois, 148304
+Joliet, Illinois, 148099
+Bellevue, Washington, 147599
+Rockford, Illinois, 146526
+Savannah, Georgia, 145862
+Paterson, New Jersey, 145627
+Torrance, California, 145182
+Bridgeport, Connecticut, 1449
+McAllen, Texas, 143433
+Mesquite, Texas, 142816
+Syracuse, New York, 142749
+Midland, Texas, 142344
+Pasadena, California, 141371
+Murfreesboro, Tennessee, 141344
+Miramar, Florida, 140823
+Dayton, Ohio, 14064
+Fullerton, California, 13964
+Olathe, Kansas, 139605
+Orange, California, 139484
+Thornton, Colorado, 139436
+Roseville, California, 139117
+Denton, Texas, 138541
+Waco, Texas, 138183
+Surprise, Arizona, 138161
+Carrollton, Texas, 136879
+West Valley City, Utah, 136401
+Charleston, South Carolina, 136208
+Warren, Michigan, 134587
+Hampton, Virginia, 134313
+Gainesville, Florida, 133857
+Visalia, California, 1338
+Coral Springs, Florida, 133507
+Columbia, South Carolina, 133451
+Cedar Rapids, Iowa, 133174
+Sterling Heights, Michigan, 132964
+New Haven, Connecticut, 130418
+Stamford, Connecticut, 129775
+Concord, California, 129688
+Kent, Washington, 129618
+Santa Clara, California, 129488
+Elizabeth, New Jersey, 128885
+Round Rock, Texas, 128739
+Thousand Oaks, California, 12769
+Lafayette, Louisiana, 126143
+Athens, Georgia, 125964
+Topeka, Kansas, 125904
+Simi Valley, California, 125851
+Fargo, North Dakota, 124844
+Norman, Oklahoma, 123471
+Columbia, Missouri, 12318
+Abilene, Texas, 122999
+Wilmington, North Carolina, 122607
+Hartford, Connecticut, 122587
+Victorville, California, 122312
+Pearland, Texas, 122149
+Vallejo, California, 121913
+Ann Arbor, Michigan, 12189
+Berkeley, California, 121643
+Allentown, Pennsylvania, 121433
+Richardson, Texas, 120981
+Odessa, Texas, 120568
+Arvada, Colorado, 120492
+Cambridge, Massachusetts, 118977
+Sugar Land, Texas, 1186
+Beaumont, Texas, 118428
+Lansing, Michigan, 118427
+Evansville, Indiana, 117963
+Rochester, Minnesota, 116961
+Independence, Missouri, 116925
+Fairfield, California, 116884
+Provo, Utah, 116702
+Clearwater, Florida, 116478
+College Station, Texas, 116218
+West Jordan, Utah, 116046
+Carlsbad, California, 115877
+El Monte, California, 115586
+Murrieta, California, 114985
+Temecula, California, 114742
+Springfield, Illinois, 114694
+Palm Bay, Florida, 114194
+Costa Mesa, California, 113615
+Westminster, Colorado, 113479
+North Charleston, South Carolina, 113237
+Miami Gardens, Florida, 113069
+Manchester, New Hampshire, 112525
+High Point, North Carolina, 112316
+Downey, California, 112269
+Clovis, California, 112022
+Pompano Beach, Florida, 111954
+Pueblo, Colorado, 11175
+Elgin, Illinois, 111683
+Lowell, Massachusetts, 11167
+Antioch, California, 111535
+West Palm Beach, Florida, 111398
+Peoria, Illinois, 111388
+Everett, Washington, 111262
+Ventura[aa], California, 111128
+Centennial, Colorado, 110831
+Lakeland, Florida, 110516
+Gresham, Oregon, 110158
+Richmond, California, 110146
+Billings, Montana, 10955
+Inglewood, California, 109419
+Broken Arrow, Oklahoma, 109171
+Sandy Springs, Georgia, 108797
+Jurupa Valley, California, 108393
+Hillsboro, Oregon, 108389
+Waterbury, Connecticut, 108093
+Santa Maria, California, 107408
+Boulder, Colorado, 107353
+Greeley, Colorado, 107348
+Daly City, California, 107008
+Meridian, Idaho, 106804
+Lewisville, Texas, 106586
+Davie[ac], Florida, 106558
+West Covina, California, 106311
+League City, Texas, 106244
+Tyler, Texas, 105729
+Norwalk, California, 10512
+San Mateo, California, 105025
+Green Bay, Wisconsin, 104879
+Wichita Falls, Texas, 104576
+Sparks, Nevada, 104246
+Lakewood[ad], New Jersey, 104157
+Burbank, California, 103695
+Rialto, California, 10344
+Allen, Texas, 103383
+El Cajon, California, 103241
+Las Cruces, New Mexico, 102926
+Renton, Washington, 102153
+Davenport, Iowa, 102085
+South Bend, Indiana, 10186
+Vista, California, 101224
+Tuscaloosa, Alabama, 101113
+Clinton[ae], Michigan, 1008
+Edison[ad], New Jersey, 100693
+Woodbridge[ad], New Jersey, 10045
+San Angelo, Texas, 100215
+Kenosha, Wisconsin, 100164
+Vacaville, California, 100154
