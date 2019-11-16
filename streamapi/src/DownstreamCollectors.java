@@ -74,6 +74,16 @@ public class DownstreamCollectors {
                 summarizingInt(City::getPopulation)));
         System.out.println("Summary Population of State New York: " + stateToCityPopulationSummary.get("New York"));
 
+        cities =  readCities("streamapi\\cities.txt");
+        Map<String, String> stateToCityNames = cities.collect(groupingBy(
+                City::getState,
+                reducing("", City::getName, (s, t) -> s.length() == 0 ? t : s + ", " + t)));
+        System.out.println("stateToCityNames: " + stateToCityNames);
 
+        cities =  readCities("streamapi\\cities.txt");
+        stateToCityNames = cities.collect(groupingBy(
+                City::getState,
+                mapping(City::getName, joining(", "))));
+        System.out.println("stateToCityNames: " + stateToCityNames);
     }
 }
