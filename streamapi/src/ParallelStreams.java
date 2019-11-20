@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 public class ParallelStreams {
 
@@ -41,7 +41,14 @@ public class ParallelStreams {
                 .collect(groupingBy(String::length, counting()));
         System.out.println(shortWordCounts);
 
+        // disappointment
+        Map<Integer, List<String>> result = wordList.parallelStream().collect(
+                Collectors.groupingByConcurrent(String::length));
+        System.out.println(result.get(14));
 
+        Map<Integer, Long> wordCounts = wordList
+                .parallelStream().collect(groupingByConcurrent(String::length, counting()));
+        System.out.println(wordCounts);
 
     }
 }
