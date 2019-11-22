@@ -7,8 +7,8 @@ import static Tree.TraverseMode.*;
 public class MainTree {
 
     public static void main(String[] args) {
-//        testTree();
-        testDZ();
+        testTree();
+//        testDZ();
     }
 
     private static void testDZ() {
@@ -47,14 +47,17 @@ public class MainTree {
         tree.insert(new NodeImpl(55, "Petr", 100));
         tree.display();
 
+        tree.revert();
+        tree.display();
+
 //        System.out.println(tree.find(55));
-//
-        System.out.print("\ninOrder: ");
-        tree.traverse(IN_ORDER);
-        System.out.print("\npreOrder: ");
-        tree.traverse(PRE_ORDER);
-        System.out.print("\npostOrder: ");
-        tree.traverse(POST_ORDER);
+
+//        System.out.print("\ninOrder: ");
+//        tree.traverse(IN_ORDER);
+//        System.out.print("\npreOrder: ");
+//        tree.traverse(PRE_ORDER);
+//        System.out.print("\npostOrder: ");
+//        tree.traverse(POST_ORDER);
 
 //        tree.remove(57);
 //        tree.remove(55);
@@ -62,7 +65,7 @@ public class MainTree {
 //        tree.remove(50);
 //        tree.remove(60);
 //        tree.display();
-
+//
 //        System.out.println("Balanced: " + tree.isBalanced());
     }
 }

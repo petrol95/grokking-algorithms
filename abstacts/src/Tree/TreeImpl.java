@@ -48,9 +48,9 @@ public class TreeImpl implements Tree {
             }
 
             // remove node if too many levels in the tree
-            if (height(root) > maxLevel) {
-                removeLeafNode(node.getKey(), parent);
-            }
+//            if (height(root) > maxLevel) {
+//                removeLeafNode(node.getKey(), parent);
+//            }
         }
     }
 
@@ -121,6 +121,20 @@ public class TreeImpl implements Tree {
             successor.setRightChild(node.getRightChild());
         }
         return successor;
+    }
+
+    @Override
+    public void revert() {
+        revert(root);
+    }
+
+    private Node revert(Node node) {
+        if (node == null)
+            return null;
+        Node newNode = new NodeImpl(60, "Petr", 100);
+        newNode.setLeftChild(revert(node.getRightChild()));
+        newNode.setRightChild(revert(node.getLeftChild()));
+        return newNode;
     }
 
     @Override

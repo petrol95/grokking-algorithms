@@ -10,6 +10,8 @@ public interface Tree {
 
     void traverse(TraverseMode mode);
 
+    void revert();
+
     void display();
 
     boolean isBalanced();
