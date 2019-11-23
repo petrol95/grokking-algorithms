@@ -10,7 +10,7 @@ public interface Tree {
 
     void traverse(TraverseMode mode);
 
-    void revert();
+    void invert();
 
     void display();
 

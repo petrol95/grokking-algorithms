@@ -47,8 +47,7 @@ public class MainTree {
         tree.insert(new NodeImpl(55, "Petr", 100));
         tree.display();
 
-        tree.revert();
-        tree.display();
+        tree.invert();
 
 //        System.out.println(tree.find(55));
 

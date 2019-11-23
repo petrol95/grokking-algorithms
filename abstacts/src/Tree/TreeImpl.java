@@ -15,6 +15,10 @@ public class TreeImpl implements Tree {
         this.maxLevel = maxLevel;
     }
 
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
     @Override
     public Node find(int key) {
         Node current = root;
@@ -47,7 +51,7 @@ public class TreeImpl implements Tree {
                 parent.setRightChild(node);
             }
 
-            // remove node if too many levels in the tree
+            // remove node if too many levels in the tree -> for balanced trees
 //            if (height(root) > maxLevel) {
 //                removeLeafNode(node.getKey(), parent);
 //            }
@@ -124,16 +128,18 @@ public class TreeImpl implements Tree {
     }
 
     @Override
-    public void revert() {
-        revert(root);
+    public void invert() {
+        TreeImpl newTree = new TreeImpl();
+        newTree.setRoot(newTree.growInvertTree(root));
+        newTree.display();
     }
 
-    private Node revert(Node node) {
+    private Node growInvertTree(Node node) {
         if (node == null)
             return null;
-        Node newNode = new NodeImpl(60, "Petr", 100);
-        newNode.setLeftChild(revert(node.getRightChild()));
-        newNode.setRightChild(revert(node.getLeftChild()));
+        Node newNode = new NodeImpl(node.getKey(), "", 0);
+        newNode.setLeftChild(growInvertTree(node.getRightChild()));
+        newNode.setRightChild(growInvertTree(node.getLeftChild()));
         return newNode;
     }
 
