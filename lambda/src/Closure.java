@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 public class Closure {
     public static void main(String[] args) {
         repeatMessage("Hello", 1000);
+        JOptionPane.showMessageDialog(null, "Quit program?");
+        System.exit(0);
     }
 
     private static void repeatMessage(String text, int delay) {
