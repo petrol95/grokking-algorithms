@@ -7,10 +7,10 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.IOException;
 
-public class StudentErrorHandler extends DefaultHandler {
+public class ErrorHandler extends DefaultHandler {
     private Logger logger = Logger.getLogger("valid");
 
-    public StudentErrorHandler (String log) throws IOException {
+    public ErrorHandler(String log) throws IOException {
         logger.addAppender(new FileAppender(new SimpleLayout(), log));
     }
 

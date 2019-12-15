@@ -11,9 +11,15 @@ import java.io.IOException;
 
 public class ValidatorSAX {
     public static void main(String[] args) {
-        String filename = "xml/students.xml";
-        String schemaname = "xml/students.xsd";
-        String logname = "xml/log/log.txt";
+
+//        String filename = "xml/students/students.xml";
+//        String schemaname = "xml/students/students.xsd";
+//        String logname = "xml/students/log/log.txt";
+
+        String filename = "xml/estate/estate.xml";
+        String schemaname = "xml/estate/estate.xsd";
+        String logname = "xml/estate/log/log.txt";
+
         Schema schema = null;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         SchemaFactory factory = SchemaFactory.newInstance(language);
@@ -25,7 +31,7 @@ public class ValidatorSAX {
             // creating an parser object
             SAXParser parser = spf.newSAXParser();
             // error handling and launching
-            parser.parse(filename, new StudentErrorHandler(logname));
+            parser.parse(filename, new ErrorHandler(logname));
             System.out.println(filename + " is valid");
         } catch (ParserConfigurationException e) {
             System.err.println(filename + " config error: " + e.getMessage());
