@@ -1,18 +1,14 @@
-<?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.nedvigimost.com/">
-    <xs:element name="house" type="content" />
+<?xml version = "1.0" encoding = "utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
 
-    <xs:complexType name="content">
+    <xs:element name="customer" type="customerType" />
+
+    <xs:complexType name="customerType">
         <xs:sequence>
-            <xs:element name="address" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
-            <xs:element name="owner" maxOccurs="unbounded" minOccurs="0" >
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="telephone" type="xs:string" />
-                    </xs:sequence>
-                    <xs:attribute name="name" type="xs:string" use="required"/>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="age" type="xs:int" />
         </xs:sequence>
     </xs:complexType>
+
 </xs:schema>

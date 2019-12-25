@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<!DOCTYPE students SYSTEM "students.dtd">-->
-    <students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="http://www.example.com/"
-        xsi:schemaLocation="http://www.example.com/student ../students.xsd">
-            <student login="MitarAlex7" faculty="mmf">
-                <name>Mitar Alex</name>
-                <telephone>2456474</telephone>
-                <address>
-                    <country>Belarus</country>
-                    <city>Minsk</city>
-                    <street>Kalinovsky 45</street>
-                </address>
-            </student>
-            <student login="Pashkin5" faculty="mmf">
-                <name>Pashkin Alex</name>
-                <telephone>3453789</telephone>
-                <address>
-                    <country>Belarus</country>
-                    <city>Brest</city>
-                    <street>Knorina 56</street>
-                </address>
-            </student>
-    </students>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xs="http://www.example.com/"
+             xsi:schemaLocation="http://www.example.com/ students.xsd">
+    <student login="MitarAlex7" faculty="mmf">
+        <name>Mitar Alex</name>
+        <telephone>2456474</telephone>
+        <address>
+            <country>Belarus</country>
+            <city>Mik</city>
+            <street>Kalinovsky 45</street>
+        </address>
+    </student>
+    <student login="Pashkin5" faculty="mmf">
+        <name>Pashkin Alex</name>
+        <telephone>3453789</telephone>
+        <address>
+            <country>Belarus</country>
+            <city>Brest</city>
+            <street>Knorina 56</street>
+        </address>
+    </student>
+</students>
