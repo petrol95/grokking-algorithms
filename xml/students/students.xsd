@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:tns="http://www.example.com"
-        targetNamespace="http://www.example.com">
-    <element name="students">
-        <complexType>
-            <sequence>
-                <element name="student"
-                         type="tns:Student"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+    <xs:element name="students">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student"
+                         type="Student"
                          minOccurs="2"
                          maxOccurs="unbounded" />
-            </sequence>
-        </complexType>
-    </element>
-    <complexType name="Student">
-        <sequence>
-            <element name="name" type="string" />
-            <element name="telephone" type="positiveInteger" />
-            <element name="address" type="tns:Address" />
-        </sequence>
-        <attribute name="login" type="tns:Login" use="required" />
-        <attribute name="faculty" use="optional" default="mmf">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="mmf"></enumeration>
-                    <enumeration value="geo"></enumeration>
-                    <enumeration value="ksis"></enumeration>
-                </restriction>
-            </simpleType>
-        </attribute>
-    </complexType>
-    <simpleType name="Login">
-        <restriction base="ID">
-            <pattern value="([a-zA-Z])[a-zA-Z0-9]{7,19}" />
-        </restriction>
-    </simpleType>
-    <complexType name="Address">
-        <sequence>
-            <element name="country" type="string" />
-            <element name="city" type="string" />
-            <element name="street" type="string" />
-        </sequence>
-    </complexType>
-</schema>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Student">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="telephone" type="xs:positiveInteger" />
+            <xs:element name="address" type="Address" />
+        </xs:sequence>
+        <xs:attribute name="login" type="Login" use="required" />
+        <xs:attribute name="faculty" use="optional" default="mmf">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="mmf"></xs:enumeration>
+                    <xs:enumeration value="geo"></xs:enumeration>
+                    <xs:enumeration value="ksis"></xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="Login">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="([a-zA-Z])[a-zA-Z0-9]{7,19}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Address">
+        <xs:sequence>
+            <xs:element name="country" type="xs:string" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="street" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

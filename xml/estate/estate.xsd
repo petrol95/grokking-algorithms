@@ -1,14 +1,19 @@
 <?xml version = "1.0" encoding = "utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
-
-    <xs:element name="customer" type="customerType" />
-
-    <xs:complexType name="customerType">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string" />
-            <xs:element name="age" type="xs:int" />
-        </xs:sequence>
-    </xs:complexType>
-
-</xs:schema>
+    <element name="house">
+        <complexType>
+            <sequence>
+                <element name="address" type="string" maxOccurs="unbounded" minOccurs="0" />
+                <element name="owner" maxOccurs="unbounded" minOccurs="0" >
+                    <complexType>
+                        <sequence>
+                            <element name="telephone" type="string" />
+                        </sequence>
+                        <attribute name="name" type="string" use="required"/>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

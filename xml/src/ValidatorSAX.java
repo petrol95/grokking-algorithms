@@ -12,13 +12,17 @@ import java.io.IOException;
 public class ValidatorSAX {
     public static void main(String[] args) {
 
-//        String filename = "xml/students/students.xml";
-//        String schemaname = "xml/students/students.xsd";
-//        String logname = "xml/students/log/log.txt";
+        String filename = "xml/students/students.xml";
+        String schemaname = "xml/students/students.xsd";
+        String logname = "xml/students/log/log.txt";
 
-        String filename = "xml/estate/estate.xml";
-        String schemaname = "xml/estate/estate.xsd";
-        String logname = "xml/estate/log/log.txt";
+//        String filename = "xml/estate/estate.xml";
+//        String schemaname = "xml/estate/estate.xsd";
+//        String logname = "xml/estate/log/log.txt";
+
+//        String filename = "xml/simple/simple.xml";
+//        String schemaname = "xml/simple/simple.xsd";
+//        String logname = "xml/simple/log/log.txt";
 
         Schema schema = null;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;

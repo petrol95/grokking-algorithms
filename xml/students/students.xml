@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns:xs="http://www.example.com/"
-             xsi:schemaLocation="http://www.example.com/ students.xsd">
-    <student login="MitarAlex7" faculty="mmf">
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <student login="Pashkin5" faculty="mmf">
         <name>Mitar Alex</name>
         <telephone>2456474</telephone>
         <address>
