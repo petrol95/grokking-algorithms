@@ -19,7 +19,7 @@ public class SAXExample_2 {
         SAXParser parser = factory.newSAXParser();
 
         AdvancedXMLHandler handler = new AdvancedXMLHandler();
-        parser.parse(new File("xml/employees/employee_2.xml"), handler);
+        parser.parse(new File("xml/SAX/employees/employee_2.xml"), handler);
 
         for (Employee employee : employees)
             System.out.println(String.format("Имя сотрудника: %s, его должность: %s", employee.getName(), employee.getJob()));
