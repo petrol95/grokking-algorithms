@@ -1,4 +1,4 @@
-package SAXexample;
+package SAX.SAXexample;
 
 public class Employee {
     private String name, job;

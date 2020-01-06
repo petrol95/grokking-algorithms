@@ -1,3 +1,5 @@
+package SAX;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -16,7 +18,7 @@ public class SAXElement {
         SAXParser parser = factory.newSAXParser();
 
         SearchingXMLHandler handler = new SearchingXMLHandler("root");
-        parser.parse(new File("xml/SAX/element/element.xml"), handler);
+        parser.parse(new File("xml/element/element.xml"), handler);
 
         if (!isFound)
             System.out.println("Элемент не был найден.");

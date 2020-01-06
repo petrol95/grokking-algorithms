@@ -1,4 +1,4 @@
-package SAXexample;
+package SAX.SAXexample;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -12,16 +12,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SAXExample {
-    private static ArrayList<Employee> employees = new ArrayList<>();
+    private static ArrayList<SAX.SAXexample.Employee> employees = new ArrayList<>();
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SAXParser parser = factory.newSAXParser();
 
         XMLHandler handler = new XMLHandler();
-        parser.parse(new File("xml/SAX/employees/employee.xml"), handler);
+        parser.parse(new File("xml/employees/employee.xml"), handler);
 
-        for (Employee employee : employees)
+        for (SAX.SAXexample.Employee employee : employees)
             System.out.println(String.format("Имя сотрудника: %s, его должность: %s", employee.getName(), employee.getJob()));
     }
 
@@ -31,7 +31,7 @@ public class SAXExample {
             if (qName.equals("employee")) {
                 String name = attributes.getValue("name");
                 String job = attributes.getValue("job");
-                employees.add(new Employee(name, job));
+                employees.add(new SAX.SAXexample.Employee(name, job));
             }
         }
     }

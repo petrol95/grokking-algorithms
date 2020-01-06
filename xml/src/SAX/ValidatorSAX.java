@@ -1,3 +1,5 @@
+package SAX;
+
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -12,17 +14,17 @@ import java.io.IOException;
 public class ValidatorSAX {
     public static void main(String[] args) {
 
-        String filename = "xml/SAX/students/students.xml";
-        String schemaname = "xml/SAX/students/students.xsd";
-        String logname = "xml/SAX/students/log/log.txt";
+        String filename = "xml/students/students.xml";
+        String schemaname = "xml/students/students.xsd";
+        String logname = "xml/students/log/log.txt";
 
-//        String filename = "xml/SAX/estate/estate.xml";
-//        String schemaname = "xml/SAX/estate/estate.xsd";
-//        String logname = "xml/SAX/estate/log/log.txt";
+//        String filename = "xml/estate/estate.xml";
+//        String schemaname = "xml/estate/estate.xsd";
+//        String logname = "xml/estate/log/log.txt";
 
-//        String filename = "xml/SAX/simple/simple.xml";
-//        String schemaname = "xml/SAX/simple/simple.xsd";
-//        String logname = "xml/SAX/simple/log/log.txt";
+//        String filename = "xml/simple/simple.xml";
+//        String schemaname = "xml/simple/simple.xsd";
+//        String logname = "xml/simple/log/log.txt";
 
         Schema schema = null;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
