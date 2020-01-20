@@ -20,7 +20,7 @@ public class PalindromeCheck {
         System.out.println(s6 + ": " + isPalindrome(s6));
     }
 
-    static boolean isPalindrome(String s) {
+    private static boolean isPalindrome(String s) {
         s = s.replaceAll("-|,|\\.|\\?|!|\\(|\\)|\\s", ""); // убираем знаки препинания, скобки и пробелы
         char[] arr = s.toCharArray();
         for (int i = 0; i <= arr.length / 2; i++) {

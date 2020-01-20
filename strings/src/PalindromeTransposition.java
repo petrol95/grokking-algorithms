@@ -1,49 +1,50 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Функция, проверяющая, является ли заданная строка перестановкой палиндрома
  */
 
 public class PalindromeTransposition {
+
     public static void main(String[] args) {
         String s = "Tact Coa";
-        System.out.println(s + " : " + checkTransposition(s, 2));
+        checkTransposition(s);
     }
 
-    private static boolean checkTransposition(String s, int pos) {
-        if (pos == s.length())
-            return false;
-        if (PalindromeCheck.isPalindrome(s))
-            return true;
-        else {
-            String string1 = s.substring(0, pos);
-            String string2 = s.substring(pos, s.length());
-            char[] arr = string1.toCharArray();
+    private static void checkTransposition(String str) {
+        List<Character> chrList = str.chars()         // IntStream
+                .mapToObj(ch -> (char) ch)      // Stream<Character>
+                .collect(Collectors.toCollection(LinkedList::new));
+        shift(chrList, chrList.size());
+    }
 
-            for (int i = 0; i < arr.length - 1; i++) {
-                arr = transport(arr, i);
-                String newString = arr.toString() + string2;
-                if (PalindromeCheck.isPalindrome(newString))
-                    return true;
-                checkTransposition(newString, pos + 1);
+    private static void shift(List<Character> list, int size) {
+        List<Character> newList;
+        if (list.size() == 2) {
+            Character chr = list.get(0);
+            list.remove(0);
+            list.add(chr);
+        } else if (list.size() < size) {
+            for (Character chr : list) {
+                newList = list;
+                newList.remove(chr);
+                shift(newList, newList.size());
+                newList.add(chr);
+            }
+        } else if (list.size() == size) {
+            System.out.println(list + ": " + checkPalindrome(list));
+        }
+    }
+
+    private static boolean checkPalindrome(List<Character> list) {
+        for (int i = 0; i <= list.size() / 2; i++) {
+            if (Character.toLowerCase(list.get(i)) != Character.toLowerCase(list.get(list.size() - 1 - i))) {
+                return false;
             }
         }
-        return false;
-    }
-
-    private static char[] transport(char[] arr, int pos) {
-        switch (pos) {
-            case 0:
-                return swap(arr, arr.length - 2, arr.length - 1);
-            case 1:
-                return swap(arr, arr.length - 1, 0);
-            default:
-                return swap(arr, pos - 2, pos - 1);
-        }
-    }
-
-    private static char[] swap(char[] arr, int i, int j) {
-        char temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        return arr;
+        return true;
     }
 }
+
