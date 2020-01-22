@@ -19,11 +19,12 @@ public class Anagram {
         }
         for (int i = 0; i < newSize; i++) {
             getAnagram(newSize - 1);
-            if (newSize == 2) {
+            if (newSize == 2 && check()) {
                 display();
+                System.exit(-1);
             }
-            rotate(newSize);
         }
+        rotate(newSize);
     }
 
     private void rotate(int newSize) {
@@ -36,17 +37,22 @@ public class Anagram {
     }
 
     private void display() {
-        if (checkPalindrome(text.toString())) {
+        if (checkPalindrome(new String(text))) {
+            System.out.print(checkPalindrome(new String(text)) + " : ");
             for (int i = 0; i < size; i++) {
                 System.out.print(text[i]);
             }
         }
     }
 
+    private boolean check() {
+        return checkPalindrome(new String(text));
+    }
+
     private boolean checkPalindrome(String s) {
-        s = s.replaceAll("-|,|\\.|\\?|!|\\(|\\)|\\s", "");
-        for (int i = 0; i <= s.length() / 2; i++) {
-            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(s.length() - 1 - i))) {
+        String str = s.replaceAll("-|,|\\.|\\?|!|\\(|\\)|\\s", "");
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (Character.toLowerCase(str.charAt(i)) != Character.toLowerCase(str.charAt(str.length() - 1 - i))) {
                 return false;
             }
         }
@@ -55,7 +61,6 @@ public class Anagram {
 
     public static void main(String[] args) {
         String word = "Tact Coa";
-//        String word = "cat";
         Anagram anagram = new Anagram(word);
         anagram.getAnagram(word.length());
     }
