@@ -15,21 +15,41 @@ public class StringModifications {
     private static boolean checkModification(String str1, String str2) {
         char[] chars1 = str1.toCharArray();
         char[] chars2 = str2.toCharArray();
-        boolean firstMod = false;
+        boolean ifExistModification = false;
 
-        // replacing
-        if(chars1.length == chars2.length) {
+        if(chars1.length == chars2.length) {        // replace check
             for (int i = 0; i < chars1.length; i++) {
                 if (chars1[i] != chars2[i]) {
-                    if (firstMod) {
+                    if (ifExistModification) {
                         return false;
                     } else {
-                        firstMod = true;
+                        ifExistModification = true;
+                    }
+                }
+            }
+        } else if (Math.abs(chars1.length - chars2.length) == 1) {      // add or delete check
+            int i = 0;
+            int j = 0;
+            while (i < chars1.length && j < chars2.length) {
+                if (chars1[i] == chars2[j]) {
+                    i++;
+                    j++;
+                } else {
+                    if (ifExistModification) {
+                        return false;
+                    } else {
+                        ifExistModification = true;
+                        if (chars1[i] == chars2[j + 1]) {
+                            j++;
+                        }
+                        if (chars1[i + 1] == chars2[j]) {
+                            i++;
+                        }
                     }
                 }
             }
         } else {
-
+            return false;
         }
         return true;
     }
