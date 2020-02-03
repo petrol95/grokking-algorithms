@@ -7,30 +7,35 @@ public class MatrixRotation {
             System.out.println(Arrays.toString(arr[i]));
         }
 //        System.out.println(Arrays.deepToString(arr));
-        rotateFrame(arr, arr[0].length);
+        rotateFrame(arr, arr[0].length, 0);
         System.out.println();
         for (int i = 0; i < arr[0].length; i++) {
             System.out.println(Arrays.toString(arr[i]));
         }
     }
 
-    private static void rotateFrame(int[][] arr, int size) {
+    private static void rotateFrame(int[][] arr, int size, int offset) {
         if (size < 2) {
             return;
         }
         int temp;
-        temp = arr[0][0];
-        arr[0][0] = arr[size - 1][0];
-        arr[size - 1][0] = arr[size - 1][size - 1];
-        arr[size - 1][size - 1] = arr[0][size - 1];
-        arr[0][size - 1] = temp;
-        for (int i = 1; i < size - 1; i++) {
-            temp = arr[0][i];
-            arr[0][i] = arr[i][0];
-            arr[i][0] = arr[size - 1][size - i - 1];
-            arr[size - 1][size - i - 1] = arr[size - i - 1][size - 1];
-            arr[size - i - 1][size - 1] = temp;
+        temp = arr[0 + offset][0 + offset];
+        arr[0 + offset][0 + offset] = arr[size - 1 - offset][0 + offset];
+        arr[size - 1 - offset][0 + offset] = arr[size - 1 - offset][size - 1 - offset];
+        arr[size - 1 - offset][size - 1 - offset] = arr[0 + offset][size - 1 - offset];
+        arr[0 + offset][size - 1 - offset] = temp;
+
+        for (int i = 1 + offset; i < size - 1; i++) {
+            temp = arr[0 + offset][i + offset];
+            arr[0 + offset][i + offset] = arr[size - i - 1 - offset][0 + offset];
+            arr[size - i - 1 - offset][0 + offset] = arr[size - 1 - offset][size - i - 1 - offset];
+            arr[size - 1 - offset][size - i - 1 - offset] = arr[i + offset][size - 1 - offset];
+            arr[i + offset][size - 1 - offset] = temp;
         }
-        rotateFrame(arr, size - 2);
+        System.out.println();
+        for (int i = 0; i < arr[0].length; i++) {
+            System.out.println(Arrays.toString(arr[i]));
+        }
+        rotateFrame(arr, size - 2, 1);
     }
 }
