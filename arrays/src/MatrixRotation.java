@@ -19,24 +19,27 @@ public class MatrixRotation {
         if (size < 2) {
             return;
         }
-        int temp;
-        temp = arr[offset][offset];
-        arr[offset][offset] = arr[size - 1 + offset][offset];
-        arr[size - 1 + offset][offset] = arr[size - 1 + offset][size - 1 + offset];
-        arr[size - 1 + offset][size - 1 + offset] = arr[offset][size - 1 + offset];
-        arr[offset][size - 1 + offset] = temp;
-
-        for (int i = 1 + offset; i < size - 1; i++) {
-            temp = arr[offset][i + offset];
-            arr[offset][i + offset] = arr[size - i - 1 - offset][offset];
-            arr[size - i - 1 - offset][offset] = arr[size - 1 - offset][size - i - 1 - offset];
-            arr[size - 1 - offset][size - i - 1 - offset] = arr[i + offset][size - 1 - offset];
-            arr[i + offset][size - 1 - offset] = temp;
+        int[] temp = new int[size];
+        for (int i = 0; i < size; i++) {
+            temp[i] = arr[offset][i + offset];
         }
-//        System.out.println();
-//        for (int i = 0; i < arr[0].length; i++) {
-//            System.out.println(Arrays.toString(arr[i]));
-//        }
+
+        for (int i = size - 1, j = 0; j < size; i--, j++) {
+            arr[offset][i] = arr[j][offset];
+        }
+
+        for (int i = 0; i < size; i++) {
+            arr[i][0] = arr[size - 1][i];
+        }
+
+        for (int i = 0, j = size - 1; i < size; i++, j--) {
+            arr[size - 1][i] = arr[j][size - 1];
+        }
+
+        for (int i = 0, j = size - 1; i < size; i++, j--) {
+            arr[i][size - 1] = temp[i];
+        }
+
         rotateFrame(arr, size - 2, 1);
     }
 }
