@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Matrix 90 degree rotation
+ * Matrix with 90 degree rotation
  */
 
 public class MatrixRotation {
